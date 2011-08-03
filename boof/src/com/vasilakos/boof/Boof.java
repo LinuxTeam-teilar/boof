@@ -26,7 +26,7 @@ public class Boof extends Activity {
 
 		setContentView(p);
 
-		counter = new MyCount(8000, 100, p);
+		counter = new MyCount(10000, 100, p);
 		counter.start();
 	}
 	

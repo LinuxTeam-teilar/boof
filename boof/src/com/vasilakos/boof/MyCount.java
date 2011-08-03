@@ -1,14 +1,15 @@
 package com.vasilakos.boof;
 
-
 import android.graphics.Paint;
 import android.os.CountDownTimer;
 import android.util.Log;
 
 public class MyCount extends CountDownTimer {
-	Panel panel;
-	Paint nextPaint, prevPaint;
-	double[] song = { 1.3, 3.5, 4, 4.8, 5, 5.1, 6, 7, 7.3, 8, 8.2, 8.5, 8.8 };
+	public Panel panel;
+	public Paint nextPaint, prevPaint;
+	public Integer c;
+	public Double[] song = { 10.0, 1.3, 3.5, 4.0, 4.8, 5.0, 5.1, 6.0, 7.0, 7.3,
+			8.0, 8.2, 8.5, 8.8 };
 
 	public MyCount(long millisInFuture, long countDownInterval) {
 		super(millisInFuture, countDownInterval);
@@ -19,12 +20,14 @@ public class MyCount extends CountDownTimer {
 		panel = p;
 		nextPaint = Panel.p1;
 		prevPaint = Panel.p9;
+		c = 1;
 	}
 
 	@Override
 	public void onFinish() {
 		Log.d(this.toString(), "done!");
 		Panel.setPaintColors();
+		c= 1;
 	}
 
 	@Override
@@ -32,31 +35,15 @@ public class MyCount extends CountDownTimer {
 		double secs = (double) millisUntilFinished / 1000;
 		secs = Math.floor(secs * 10 + .5) / 10;
 
-		if (secs <= song[0]) {
-			timeToChangeColor();
-		} else if (secs <= song[1]) {
-			timeToChangeColor();
-		} else if (secs <= song[2]) {
-			timeToChangeColor();
-		} else if (secs <= song[3]) {
-			timeToChangeColor();
-		} else if (secs <= song[4]) {
-			timeToChangeColor();
-		} else if (secs <= song[5]) {
-			timeToChangeColor();
-		} else if (secs <= song[6]) {
-			timeToChangeColor();
-		} else if (secs <= song[7]) {
-			timeToChangeColor();
-		} else if (secs <= song[8]) {
-			timeToChangeColor();
-		} else if (secs <= song[9]) {
-			timeToChangeColor();
-		} else if (secs <= song[10]) {
-			timeToChangeColor();
-		} else if (secs <= song[11]) {
-			timeToChangeColor();
-		}
+//		Log.d("koko", "OUT OF IF :" + secs + ">= " + (song[0] - song[c])
+//				+ " , c : " + c);
+		
+		if (c < song.length)
+			if (secs <= song[0] - song[c]) {
+				Log.d("koko", secs + "<= " + (song[0] - song[c]) + " , c : " + c);
+				timeToChangeColor();
+				c++;
+			}
 	}
 
 	public void timeToChangeColor() {
