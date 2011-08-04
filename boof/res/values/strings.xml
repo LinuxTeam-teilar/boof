@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, Boof!</string>
+    <string name="instructionsText">Select\nthe number\nof players!\nΕπιλέξτε\nτον αριθμό\nτων παικτών!</string>
     <string name="app_name">Boof</string>
 </resources>

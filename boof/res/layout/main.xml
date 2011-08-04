@@ -6,10 +6,62 @@
 	android:layout_height="fill_parent">
 	<ImageView
 		android:layout_height="wrap_content"
-		android:src="@drawable/start_released"
+		android:src="@drawable/start_button_images"
 		android:layout_width="wrap_content"
 		android:layout_alignParentBottom="true"
 		android:layout_centerHorizontal="true"
-		android:layout_marginBottom="10dp" android:id="@+id/startImg" android:clickable="true"></ImageView>
-	<ImageView android:id="@+id/imageView1" android:layout_height="wrap_content" android:src="@drawable/boof" android:layout_width="wrap_content" android:layout_alignParentTop="true" android:layout_centerHorizontal="true"></ImageView>
+		android:layout_marginBottom="5dp"
+		android:id="@+id/startImg"
+		android:clickable="true"></ImageView>
+	<EditText
+		android:layout_height="100dp"
+		android:text="9"
+		android:inputType="numberSigned"
+		android:layout_width="100dp"
+		android:layout_marginLeft="30dp"
+		android:layout_centerVertical="true"
+		android:layout_alignParentLeft="true"
+		android:id="@+id/numberOfPlayersEditText"
+		android:typeface="monospace"
+		android:textStyle="bold"
+		android:gravity="center"
+		android:textSize="72sp">
+		<requestFocus></requestFocus>
+	</EditText>
+	<Button
+		android:id="@+id/increaseNumberOfPlayersButton"
+		android:layout_height="50dp"
+		android:text="↗"
+		android:layout_width="100dp"
+		android:layout_marginRight="30dp"
+		android:layout_alignTop="@+id/numberOfPlayersEditText"
+		android:layout_alignParentRight="true"
+		android:textSize="20sp"></Button>
+	<Button
+		android:id="@+id/decreaseNumberOfPlayersButton"
+		android:layout_height="50dp"
+		android:text="↙"
+		android:layout_width="100dp"
+		android:layout_marginRight="30dp"
+		android:layout_alignBottom="@+id/numberOfPlayersEditText"
+		android:layout_alignParentRight="true"
+		android:textSize="20sp"></Button>
+	<ImageView
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:id="@+id/logoImg"
+		android:src="@drawable/boof"
+		android:layout_alignParentTop="true"
+		android:layout_alignParentLeft="true"></ImageView>
+	<TextView
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:gravity="center"
+		android:textSize="22sp"
+		android:text="@string/instructionsText"
+		android:layout_marginRight="5dp"
+		android:layout_marginTop="25dp"
+		android:layout_alignParentTop="true"
+		android:layout_alignParentRight="true"
+		android:id="@+id/instructionsTextView"></TextView>
 </RelativeLayout>
