@@ -4,10 +4,13 @@ import android.app.Activity;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Display;
+import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
 
 public class Boof extends Activity {
+	
+	TextView noOfPlayersEt;
 
 	MyCount counter;
 	public static Integer size;
@@ -16,7 +19,7 @@ public class Boof extends Activity {
 	public void onStop() {
 		super.onStop();
 
-		counter.cancel();
+//		counter.cancel();
 	}
 
 	@Override
@@ -33,9 +36,11 @@ public class Boof extends Activity {
 //		setContentView(p);
 		setContentView(R.layout.main);
 		
-		TextView txt = (TextView) findViewById(R.id.instructionsTextView);  
-		Typeface font = Typeface.createFromAsset(getAssets(), "fonts/mghobofun.ttf");  
+		TextView txt = (TextView) findViewById(R.id.instructionsTextView);
+		noOfPlayersEt = (TextView) findViewById(R.id.numberOfPlayersTv);
+		Typeface font = Typeface.createFromAsset(getAssets(), "fonts/ubscript.ttf");  
 		txt.setTypeface(font); 
+		noOfPlayersEt.setTypeface(font);
 
 //		counter = new MyCount(10000, 100, p);
 //		counter.start();
@@ -53,6 +58,22 @@ public class Boof extends Activity {
 	
 	public static Integer getScreenSize(){
 		return size;
+	}
+	
+	public void plusButtonClicked(View v){
+		Integer a = Integer.parseInt(noOfPlayersEt.getText().toString());
+		if (a < 9){
+			a++;
+			noOfPlayersEt.setText(a.toString());
+		}
+	}
+	
+	public void minusButtonClicked(View v){
+		Integer a = Integer.parseInt(noOfPlayersEt.getText().toString());
+		if (a > 2){
+			a--;
+			noOfPlayersEt.setText(a.toString());
+		}
 	}
 
 }
