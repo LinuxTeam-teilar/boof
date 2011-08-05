@@ -81,20 +81,4 @@
 		android:paddingTop="24dp"
 		android:textColor="#FFFFFF"
 		android:text="Click here to select song"></TextView>
-	<!-- ImageView
-		android:src="@drawable/song_img_left"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_below="@+id/numberOfPlayersTv"
-		android:layout_marginTop="2dp"
-		android:layout_toLeftOf="@+id/selectSongTv"
-		android:id="@+id/song_img_left"></ImageView>
-	<ImageView
-		android:src="@drawable/song_img_right"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_below="@+id/numberOfPlayersTv"
-		android:layout_marginTop="2dp"
-		android:layout_alignParentRight="true"
-		android:id="@+id/song_img_right"></ImageView -->
 </RelativeLayout>
