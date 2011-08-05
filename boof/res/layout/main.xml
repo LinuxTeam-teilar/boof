@@ -10,7 +10,6 @@
 		android:layout_width="wrap_content"
 		android:layout_alignParentBottom="true"
 		android:layout_centerHorizontal="true"
-		android:layout_marginBottom="5dp"
 		android:id="@+id/startImg"
 		android:clickable="true"></ImageView>
 	<TextView
@@ -41,11 +40,11 @@
 		android:layout_height="wrap_content"
 		android:layout_width="wrap_content"
 		android:gravity="center"
-		android:textSize="24sp"
+		android:textSize="22sp"
 		android:text="@string/instructionsText"
 		android:textColor="#FFFFFFFF"
 		android:layout_marginRight="3dp"
-		android:layout_marginTop="10dp"
+		android:layout_marginTop="20dp"
 		android:layout_alignParentTop="true"
 		android:layout_alignParentRight="true"
 		android:id="@+id/instructionsTextView"></TextView>
@@ -56,7 +55,8 @@
 		android:layout_centerVertical="true"
 		android:layout_toRightOf="@+id/numberOfPlayersTv"
 		android:layout_marginLeft="10dp"
-		android:onClick="plusButtonClicked" android:id="@+id/plusImg"></ImageView>
+		android:onClick="plusButtonClicked"
+		android:id="@+id/plusImg"></ImageView>
 	<ImageView
 		android:layout_width="wrap_content"
 		android:src="@drawable/minus_button_images"
@@ -64,5 +64,37 @@
 		android:layout_height="wrap_content"
 		android:layout_centerVertical="true"
 		android:layout_toLeftOf="@+id/numberOfPlayersTv"
-		android:onClick="minusButtonClicked" android:id="@+id/minusImg"></ImageView>
+		android:onClick="minusButtonClicked"
+		android:id="@+id/minusImg"></ImageView>
+	<TextView
+		android:id="@+id/selectSongTv"
+		android:background="@drawable/song_img_center"
+		android:layout_width="410dp"
+		android:layout_height="wrap_content"
+		android:textSize="21sp"
+		android:gravity="left"
+		android:layout_centerHorizontal="true"
+		android:layout_below="@+id/numberOfPlayersTv"
+		android:layout_marginTop="5dp"
+		android:paddingLeft="52dp"
+		android:paddingRight="15dp"
+		android:paddingTop="24dp"
+		android:textColor="#FFFFFF"
+		android:text="Click here to select song"></TextView>
+	<!-- ImageView
+		android:src="@drawable/song_img_left"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/numberOfPlayersTv"
+		android:layout_marginTop="2dp"
+		android:layout_toLeftOf="@+id/selectSongTv"
+		android:id="@+id/song_img_left"></ImageView>
+	<ImageView
+		android:src="@drawable/song_img_right"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/numberOfPlayersTv"
+		android:layout_marginTop="2dp"
+		android:layout_alignParentRight="true"
+		android:id="@+id/song_img_right"></ImageView -->
 </RelativeLayout>

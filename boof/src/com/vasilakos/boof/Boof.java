@@ -37,13 +37,15 @@ public class Boof extends Activity {
 		// setContentView(p);
 		setContentView(R.layout.main);
 
-		TextView txt = (TextView) findViewById(R.id.instructionsTextView);
+		TextView instrTv = (TextView) findViewById(R.id.instructionsTextView);
+		TextView selSongTv = (TextView) findViewById(R.id.selectSongTv);
 		noOfPlayersEt = (TextView) findViewById(R.id.numberOfPlayersTv);
 		Typeface font = Typeface.createFromAsset(getAssets(),
 				"fonts/ubscript.ttf");
-		txt.setTypeface(font);
+		instrTv.setTypeface(font);
 		noOfPlayersEt.setTypeface(font);
-
+		selSongTv.setTypeface(font);
+		
 		// counter = new MyCount(10000, 100, p);
 		// counter.start();
 	}
