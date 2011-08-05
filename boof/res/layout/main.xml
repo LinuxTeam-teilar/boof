@@ -34,7 +34,7 @@
 		android:layout_alignParentTop="true"
 		android:layout_alignParentLeft="true"
 		android:layout_height="wrap_content"
-		android:layout_above="@+id/imageView2"
+		android:layout_above="@+id/minusImg"
 		android:layout_marginRight="10dp"
 		android:layout_toLeftOf="@+id/instructionsTextView"></ImageView>
 	<TextView
@@ -52,19 +52,17 @@
 	<ImageView
 		android:layout_width="wrap_content"
 		android:src="@drawable/plus_button_images"
-		android:id="@+id/imageView1"
 		android:layout_height="wrap_content"
 		android:layout_centerVertical="true"
 		android:layout_toRightOf="@+id/numberOfPlayersTv"
 		android:layout_marginLeft="10dp"
-		android:onClick="plusButtonClicked"></ImageView>
+		android:onClick="plusButtonClicked" android:id="@+id/plusImg"></ImageView>
 	<ImageView
 		android:layout_width="wrap_content"
 		android:src="@drawable/minus_button_images"
-		android:id="@+id/imageView2"
 		android:layout_marginRight="10dp"
 		android:layout_height="wrap_content"
 		android:layout_centerVertical="true"
 		android:layout_toLeftOf="@+id/numberOfPlayersTv"
-		android:onClick="minusButtonClicked"></ImageView>
+		android:onClick="minusButtonClicked" android:id="@+id/minusImg"></ImageView>
 </RelativeLayout>
