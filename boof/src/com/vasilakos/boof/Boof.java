@@ -1,18 +1,30 @@
 package com.vasilakos.boof;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Typeface;
-import android.media.MediaPlayer;
-import android.media.MediaPlayer.OnCompletionListener;
 import android.os.Bundle;
 import android.view.Display;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.BaseAdapter;
+import android.widget.Gallery;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class Boof extends Activity {
 
 	TextView noOfPlayersEt;
+	
+	Integer[] songs = {
+		R.drawable.song0,
+		R.drawable.song1,
+		R.drawable.song2,
+		R.drawable.song3,
+		R.drawable.song4
+	};
 
 	// MyCount counter;
 	public static Integer size;
@@ -29,22 +41,26 @@ public class Boof extends Activity {
 		super.onCreate(savedInstanceState);
 
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		
+		setContentView(R.layout.main);
+
+		
 
 		setSize();
 
 		// Panel p = new Panel(this);
 
 		// setContentView(p);
-		setContentView(R.layout.main);
 
 		TextView instrTv = (TextView) findViewById(R.id.instructionsTextView);
-		TextView selSongTv = (TextView) findViewById(R.id.selectSongTv);
 		noOfPlayersEt = (TextView) findViewById(R.id.numberOfPlayersTv);
 		Typeface font = Typeface.createFromAsset(getAssets(),
 				"fonts/ubscript.ttf");
 		instrTv.setTypeface(font);
 		noOfPlayersEt.setTypeface(font);
-		selSongTv.setTypeface(font);
+		
+		Gallery ga = (Gallery)findViewById(R.id.song_select_gallery);
+		ga.setAdapter(new ImageAdapter(this));
 		
 		// counter = new MyCount(10000, 100, p);
 		// counter.start();
@@ -97,4 +113,42 @@ public class Boof extends Activity {
 		// }
 		// }.start();
 	}
+	
+    public class ImageAdapter extends BaseAdapter {
+
+    	private Context ctx;
+    	
+    	public ImageAdapter(Context c) {
+			ctx = c;
+			TypedArray ta = obtainStyledAttributes(R.styleable.Gallery1);
+			ta.recycle();
+		}
+
+		@Override
+    	public int getCount() {
+    		
+    		return songs.length;
+    	}
+
+    	@Override
+    	public Object getItem(int arg0) {
+    		
+    		return arg0;
+    	}
+
+    	@Override
+    	public long getItemId(int arg0) {
+    		
+    		return arg0;
+    	}
+
+    	@Override
+    	public View getView(int arg0, View arg1, ViewGroup arg2) {
+    		ImageView iv = new ImageView(ctx);
+    		iv.setImageResource(songs[arg0]);
+    		iv.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+//    		iv.setLayoutParams(new Gallery.LayoutParams(144,50));
+    		return iv;
+    	}
+    }
 }

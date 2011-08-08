@@ -5,36 +5,14 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_height="fill_parent">
 	<ImageView
-		android:layout_height="wrap_content"
-		android:src="@drawable/start_button_images"
-		android:layout_width="wrap_content"
-		android:layout_alignParentBottom="true"
-		android:layout_centerHorizontal="true"
-		android:id="@+id/startImg"
-		android:clickable="true"></ImageView>
-	<TextView
-		android:layout_height="100dp"
-		android:inputType="numberSigned"
-		android:layout_width="100dp"
-		android:layout_centerVertical="true"
-		android:layout_centerHorizontal="true"
-		android:id="@+id/numberOfPlayersTv"
-		android:textStyle="bold"
-		android:gravity="center"
-		android:textSize="80sp"
-		android:text="5"
-		android:maxLength="1"
-		android:textColor="#FFFFFF">
-	</TextView>
-	<ImageView
 		android:layout_width="wrap_content"
 		android:id="@+id/logoImg"
 		android:src="@drawable/boof"
 		android:layout_alignParentTop="true"
 		android:layout_alignParentLeft="true"
 		android:layout_height="wrap_content"
-		android:layout_above="@+id/minusImg"
 		android:layout_marginRight="10dp"
+		android:layout_above="@+id/numberOfPlayersTv"
 		android:layout_toLeftOf="@+id/instructionsTextView"></ImageView>
 	<TextView
 		android:layout_height="wrap_content"
@@ -44,41 +22,78 @@
 		android:text="@string/instructionsText"
 		android:textColor="#FFFFFFFF"
 		android:layout_marginRight="3dp"
-		android:layout_marginTop="20dp"
+		android:layout_marginTop="10dp"
 		android:layout_alignParentTop="true"
 		android:layout_alignParentRight="true"
-		android:id="@+id/instructionsTextView"></TextView>
+		android:id="@+id/instructionsTextView"
+		android:layout_above="@+id/numberOfPlayersTv"></TextView>
 	<ImageView
+		android:id="@+id/startImg"
+		android:src="@drawable/start_button_images"
 		android:layout_width="wrap_content"
-		android:src="@drawable/plus_button_images"
 		android:layout_height="wrap_content"
-		android:layout_centerVertical="true"
-		android:layout_toRightOf="@+id/numberOfPlayersTv"
-		android:layout_marginLeft="10dp"
-		android:onClick="plusButtonClicked"
-		android:id="@+id/plusImg"></ImageView>
-	<ImageView
-		android:layout_width="wrap_content"
-		android:src="@drawable/minus_button_images"
-		android:layout_marginRight="10dp"
-		android:layout_height="wrap_content"
-		android:layout_centerVertical="true"
-		android:layout_toLeftOf="@+id/numberOfPlayersTv"
-		android:onClick="minusButtonClicked"
-		android:id="@+id/minusImg"></ImageView>
-	<TextView
-		android:id="@+id/selectSongTv"
-		android:background="@drawable/song_img_center"
-		android:layout_width="410dp"
-		android:layout_height="wrap_content"
-		android:textSize="21sp"
-		android:gravity="left"
+		android:clickable="true"
+		android:layout_alignParentBottom="true"
 		android:layout_centerHorizontal="true"
-		android:layout_below="@+id/numberOfPlayersTv"
-		android:layout_marginTop="5dp"
-		android:paddingLeft="52dp"
-		android:paddingRight="15dp"
-		android:paddingTop="24dp"
+		android:maxHeight="100dp"></ImageView>
+	<Gallery
+		android:paddingLeft="40dp"
+		android:id="@+id/song_select_gallery"
+		android:background="@drawable/song_img_bg"
+		android:paddingRight="23dp"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_above="@+id/startImg"
+		android:layout_alignRight="@+id/instructionsTextView"
+		android:layout_marginBottom="10dp"></Gallery>
+	<ImageView
+		android:id="@+id/imageView2"
+		android:src="@drawable/song_img_right"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_above="@+id/startImg"
+		android:layout_alignParentRight="true"
+		android:layout_marginBottom="10dp"></ImageView>
+	<ImageView
+		android:id="@+id/imageView1"
+		android:src="@drawable/song_img_left"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_above="@+id/startImg"
+		android:layout_alignParentLeft="true"
+		android:duplicateParentState="false"
+		android:layout_marginBottom="10dp"></ImageView>
+	<TextView
+		android:maxLength="1"
+		android:id="@+id/numberOfPlayersTv"
+		android:textStyle="bold"
+		android:layout_width="100dp"
+		android:gravity="center"
+		android:text="5"
+		android:textSize="80sp"
+		android:inputType="numberSigned"
+		android:layout_height="100dp"
 		android:textColor="#FFFFFF"
-		android:text="Click here to select song"></TextView>
+		android:layout_above="@+id/song_select_gallery"
+		android:layout_centerHorizontal="true"></TextView>
+	<ImageView
+		android:id="@+id/plusImg"
+		android:src="@drawable/plus_button_images"
+		android:onClick="plusButtonClicked"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_above="@+id/song_select_gallery"
+		android:layout_alignTop="@+id/numberOfPlayersTv"
+		android:layout_toRightOf="@+id/numberOfPlayersTv"
+		android:layout_marginTop="10dp"></ImageView>
+	<ImageView
+		android:id="@+id/minusImg"
+		android:src="@drawable/minus_button_images"
+		android:onClick="minusButtonClicked"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_above="@+id/song_select_gallery"
+		android:layout_alignTop="@+id/numberOfPlayersTv"
+		android:layout_toLeftOf="@+id/numberOfPlayersTv"
+		android:layout_marginTop="10dp"></ImageView>
 </RelativeLayout>
