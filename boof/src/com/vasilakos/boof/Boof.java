@@ -4,6 +4,7 @@ import java.util.Random;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -11,6 +12,8 @@ import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
 import android.os.Bundle;
 import android.view.Display;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -58,6 +61,7 @@ public class Boof extends Activity {
 				"fonts/ubscript.ttf");
 		instrTv.setTypeface(font);
 		noOfPlayersEt.setTypeface(font);
+		setRandomTextColor();
 
 		Gallery ga = (Gallery) findViewById(R.id.song_select_gallery);
 		ga.setAdapter(new ImageAdapter(this));
@@ -74,6 +78,49 @@ public class Boof extends Activity {
 
 		// counter = new MyCount(10000, 100, p);
 		// counter.start();
+	}
+
+	public boolean onCreateOptionsMenu(Menu menu) {
+		menu.add(0, 1, 0, R.string.instructions);
+		menu.add(0, 3, 0, R.string.settings);
+		menu.add(0, 2, 0, R.string.info);
+		menu.add(0, 4, 0, R.string.donate);
+		return true;
+	}
+
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case 1:
+			instructionsButtonClicked();
+			return true;
+		case 2:
+			infoButtonClicked();
+			return true;
+		case 3:
+			settingsButtonClicked();
+			return true;
+		case 4:
+			// Intent browse = new Intent(
+			// Intent.ACTION_VIEW,
+			// Uri.parse(""));
+			// startActivity(browse);
+			return true;
+		}
+		return false;
+	}
+
+	public void instructionsButtonClicked() {
+		Intent str = new Intent(this, com.vasilakos.boof.Instructions.class);
+		startActivity(str);
+	}
+
+	public void infoButtonClicked() {
+		Intent str = new Intent(this, com.vasilakos.boof.Information.class);
+		startActivity(str);
+	}
+	
+	public void settingsButtonClicked(){
+		;
 	}
 
 	public void setSize() {

@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="instructionsText">Επιλέξτε αριθμό\nπαικτών και\nτραγούδι...</string>
-    <string name="app_name">Boof</string>
-    <string name="boof">Μπουφ!</string>
+	<string name="instructionsText">Επιλέξτε αριθμό\nπαικτών και\nτραγούδι...</string>
+	<string name="app_name">Boof</string>
+	<string name="boof">Μπουφ!</string>
+	<string name="instructions">Οδηγίες</string>
+	<string name="info">Πληροφορίες</string>
+	<string name="donate">Δωρεά</string>
+	<string name="settings">Ρυθμίσεις</string>
+	<string name="version">0.4</string>
+	<string name="description">TODO: write a description</string>
+	<string name="copyright">Copyright (c) 2011 Βασιλάκος Γεώργιος</string>
+	<string name="contact">Επικοινωνία :</string>
+	<string name="site">http://linuxteam.cs.teilar.gr/~forfolias/boof/
+	</string>
+	<string name="back">Επιστροφή</string>
+	<string name="licence">Άδεια χρήσης</string>
+	<string name="licenceText">
+		This program is free software: you can redistribute
+		it and/or modify it
+		under the terms of the GNU General Public License
+		as published by the
+		Free Software Foundation, either version 3 of the
+		License, or (at your
+		option) any later version. This program is
+		distributed in the hope
+		that it will be useful, but WITHOUT ANY
+		WARRANTY; without even the
+		implied warranty of MERCHANTABILITY or
+		FITNESS FOR A PARTICULAR
+		PURPOSE. See the GNU General Public License
+		for more details. You
+		should have received a copy of the GNU General
+		Public License along
+		with this program. If not, see
+		http://www.gnu.org/licenses/
+	</string>
 </resources>
