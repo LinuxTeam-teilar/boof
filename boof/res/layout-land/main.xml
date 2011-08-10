@@ -20,12 +20,10 @@
 	<ImageView
 		android:src="@drawable/start_button_images"
 		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
 		android:layout_alignParentBottom="true"
 		android:layout_centerHorizontal="true"
 		android:onClick="boofButtonClicked"
-		android:id="@+id/boofImg"
-		android:maxHeight="20dp"></ImageView>
+		android:id="@+id/boofImg" android:layout_height="80dp"></ImageView>
 	<Gallery
 		android:paddingLeft="40dp"
 		android:id="@+id/song_select_gallery"
@@ -35,7 +33,7 @@
 		android:layout_height="wrap_content"
 		android:layout_above="@+id/boofImg"
 		android:layout_alignRight="@+id/instructionsTextView"
-		android:layout_marginBottom="10dp"></Gallery>
+		android:layout_marginBottom="10dp" android:layout_marginTop="5dp"></Gallery>
 	<ImageView
 		android:id="@+id/imageView2"
 		android:src="@drawable/song_img_right"
@@ -65,7 +63,7 @@
 		android:layout_height="100dp"
 		android:textColor="#FFFFFF"
 		android:layout_above="@+id/song_select_gallery"
-		android:layout_centerHorizontal="true"></TextView>
+		android:layout_centerHorizontal="true" android:layout_marginTop="5dp"></TextView>
 	<ImageView
 		android:id="@+id/plusImg"
 		android:src="@drawable/plus_button_images"

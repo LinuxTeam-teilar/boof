@@ -35,4 +35,5 @@
 		with this program. If not, see
 		http://www.gnu.org/licenses/
 	</string>
+	<string name="instructionsActivityText">TODO: write instructions</string>
 </resources>

@@ -45,7 +45,7 @@ public class Information extends Activity {
 		img.setOnLongClickListener(new View.OnLongClickListener() {
 
 			public boolean onLongClick(View v) {
-				Toast toast = Toast.makeText(getApplicationContext(), "Boof!",
+				Toast toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.boof),
 						Toast.LENGTH_SHORT);
 				toast.setGravity(Gravity.TOP, 75, 35);
 				toast.show();

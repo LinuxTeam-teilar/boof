@@ -16,5 +16,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".Information" android:label="@string/info"/>
+        <activity android:name=".Instructions" android:label="@string/instructions"/>
     </application>
 </manifest>

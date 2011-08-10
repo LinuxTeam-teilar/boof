@@ -41,6 +41,25 @@ public class Boof extends Activity {
 
 	}
 
+	public void onStart() {
+		super.onStart();
+		
+		TextView instrTv = (TextView) findViewById(R.id.instructionsTextView);
+		noOfPlayersEt = (TextView) findViewById(R.id.numberOfPlayersTv);
+		Typeface font = Typeface.createFromAsset(getAssets(),
+				"fonts/ubscript.ttf");
+		instrTv.setTypeface(font);
+		noOfPlayersEt.setTypeface(font);
+		setRandomTextColor();
+		
+		Gallery ga = (Gallery) findViewById(R.id.song_select_gallery);
+		ga.setAdapter(new ImageAdapter(this));
+
+		bgMusic = MediaPlayer.create(this, R.raw.childrenplaying);
+		bgMusic.setLooping(true);
+		bgMusic.start();
+	}
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -54,27 +73,6 @@ public class Boof extends Activity {
 		// Panel p = new Panel(this);
 
 		// setContentView(p);
-
-		TextView instrTv = (TextView) findViewById(R.id.instructionsTextView);
-		noOfPlayersEt = (TextView) findViewById(R.id.numberOfPlayersTv);
-		Typeface font = Typeface.createFromAsset(getAssets(),
-				"fonts/ubscript.ttf");
-		instrTv.setTypeface(font);
-		noOfPlayersEt.setTypeface(font);
-		setRandomTextColor();
-
-		Gallery ga = (Gallery) findViewById(R.id.song_select_gallery);
-		ga.setAdapter(new ImageAdapter(this));
-
-		bgMusic = MediaPlayer.create(this, R.raw.childrenplaying);
-		bgMusic.setLooping(true);
-		bgMusic.start();
-
-		// try {
-		// mp = MediaPlayer.create(this, R.raw.splat1);
-		// } catch (Exception e) {
-		// Log.d("KOKO", e.getLocalizedMessage());
-		// }
 
 		// counter = new MyCount(10000, 100, p);
 		// counter.start();
@@ -118,8 +116,8 @@ public class Boof extends Activity {
 		Intent str = new Intent(this, com.vasilakos.boof.Information.class);
 		startActivity(str);
 	}
-	
-	public void settingsButtonClicked(){
+
+	public void settingsButtonClicked() {
 		;
 	}
 
@@ -206,25 +204,21 @@ public class Boof extends Activity {
 			ta.recycle();
 		}
 
-		@Override
 		public int getCount() {
 
 			return songs.length;
 		}
 
-		@Override
 		public Object getItem(int arg0) {
 
 			return arg0;
 		}
 
-		@Override
 		public long getItemId(int arg0) {
 
 			return arg0;
 		}
 
-		@Override
 		public View getView(int arg0, View arg1, ViewGroup arg2) {
 			ImageView iv = new ImageView(ctx);
 			iv.setImageResource(songs[arg0]);
