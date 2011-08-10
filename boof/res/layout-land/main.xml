@@ -4,19 +4,9 @@
 	android:layout_margin="5dip"
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_height="fill_parent">
-	<ImageView
-		android:layout_width="wrap_content"
-		android:id="@+id/logoImg"
-		android:src="@drawable/boof"
-		android:layout_alignParentTop="true"
-		android:layout_alignParentLeft="true"
-		android:layout_height="wrap_content"
-		android:layout_marginRight="10dp"
-		android:layout_above="@+id/numberOfPlayersTv"
-		android:layout_toLeftOf="@+id/instructionsTextView"></ImageView>
 	<TextView
 		android:layout_height="wrap_content"
-		android:layout_width="wrap_content"
+		android:layout_width="fill_parent"
 		android:gravity="center"
 		android:textSize="22sp"
 		android:text="@string/instructionsText"
@@ -28,14 +18,14 @@
 		android:id="@+id/instructionsTextView"
 		android:layout_above="@+id/numberOfPlayersTv"></TextView>
 	<ImageView
-		android:id="@+id/startImg"
 		android:src="@drawable/start_button_images"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:clickable="true"
 		android:layout_alignParentBottom="true"
 		android:layout_centerHorizontal="true"
-		android:maxHeight="100dp" android:onClick="boofButtonClicked"></ImageView>
+		android:onClick="boofButtonClicked"
+		android:id="@+id/boofImg"
+		android:maxHeight="20dp"></ImageView>
 	<Gallery
 		android:paddingLeft="40dp"
 		android:id="@+id/song_select_gallery"
@@ -43,7 +33,7 @@
 		android:paddingRight="23dp"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
-		android:layout_above="@+id/startImg"
+		android:layout_above="@+id/boofImg"
 		android:layout_alignRight="@+id/instructionsTextView"
 		android:layout_marginBottom="10dp"></Gallery>
 	<ImageView
@@ -51,7 +41,7 @@
 		android:src="@drawable/song_img_right"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_above="@+id/startImg"
+		android:layout_above="@+id/boofImg"
 		android:layout_alignParentRight="true"
 		android:layout_marginBottom="10dp"></ImageView>
 	<ImageView
@@ -59,7 +49,7 @@
 		android:src="@drawable/song_img_left"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_above="@+id/startImg"
+		android:layout_above="@+id/boofImg"
 		android:layout_alignParentLeft="true"
 		android:duplicateParentState="false"
 		android:layout_marginBottom="10dp"></ImageView>

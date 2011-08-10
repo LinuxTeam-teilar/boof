@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="instructionsText">Επιλέξτε τον αριθμό\nπαικτών και το τραγούδι...</string>
+    <string name="instructionsText">Επιλέξτε αριθμό παικτών και τραγούδι...</string>
     
 </resources>
