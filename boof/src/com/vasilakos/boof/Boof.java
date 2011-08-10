@@ -1,8 +1,11 @@
 package com.vasilakos.boof;
 
+import java.util.Random;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Display;
@@ -86,6 +89,7 @@ public class Boof extends Activity {
 		if (a < 9) {
 			a++;
 			noOfPlayersEt.setText(a.toString());
+			setRandomTextColor();
 		}
 	}
 
@@ -94,7 +98,14 @@ public class Boof extends Activity {
 		if (a > 2) {
 			a--;
 			noOfPlayersEt.setText(a.toString());
+			setRandomTextColor();
 		}
+	}
+	
+	public void setRandomTextColor(){
+		Random random = new Random();
+		int randomColor = Color.rgb(random.nextInt(255), random.nextInt(255), random.nextInt(255));
+		noOfPlayersEt.setTextColor(randomColor);
 	}
 
 	public void playPliatsSound() {
