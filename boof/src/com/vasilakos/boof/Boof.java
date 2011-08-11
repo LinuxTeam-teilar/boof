@@ -14,7 +14,6 @@ import android.media.MediaPlayer.OnCompletionListener;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -147,11 +146,7 @@ public class Boof extends Activity {
 				.getDefaultSharedPreferences(getBaseContext());
 		soundEffects = prefs.getBoolean("soundEffects", true);
 		music = prefs.getBoolean("music", true);
-		
-		SharedPreferences mySharedPreferences = getSharedPreferences(
-                "myCustomSharedPrefs", Activity.MODE_PRIVATE);
-		bgColor = mySharedPreferences.getInt("bgColor", 0xff000000);
-		Log.d("Boof : ", "Read pref for color : " + bgColor);
+		bgColor = prefs.getInt("bgColor", 0xff000000);
 	}
 
 	public void setSize() {

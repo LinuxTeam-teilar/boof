@@ -1,29 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:id="@+id/colorPickerPreferenceView"
-	android:orientation="vertical"
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content">
-	<TextView
-		android:text="Title"
-		android:layout_width="wrap_content"
-		android:textAppearance="?android:attr/textAppearanceLarge"
-		android:layout_height="wrap_content"
-		android:id="@+id/colorPickerTitle"></TextView>
-	<TextView
-		android:text="Summary"
-		android:layout_height="wrap_content"
-		android:layout_width="wrap_content"
-		android:layout_below="@+id/colorPickerTitle"
-		android:id="@+id/colorPickerSummary"></TextView>
-	<LinearLayout
-		android:id="@+id/linearLayout1"
-		android:orientation="horizontal"
-		android:layout_width="40dp"
-		android:layout_height="40dp"
-		android:background="#555555"
-		android:layout_alignParentTop="true"
-		android:layout_alignParentRight="true"></LinearLayout>
-
-</RelativeLayout>
+<View xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/colorPickerBox" 
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:layout_gravity="center_vertical"
+    android:layout_marginRight="6sp"
+    android:focusable="false"
+    android:clickable="false" />

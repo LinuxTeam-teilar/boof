@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-	<PreferenceCategory android:title="@string/sounds">
+<PreferenceScreen
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceCategory
+		android:title="@string/sounds">
 		<CheckBoxPreference
 			android:title="@string/soundEffects"
 			android:defaultValue="true"
@@ -12,15 +14,12 @@
 			android:summary="@string/musicSummary"
 			android:key="music" />
 	</PreferenceCategory>
-		<PreferenceCategory android:title="@string/colors">
-		<Preference
+	<PreferenceCategory
+		android:title="@string/colors">
+		<com.vasilakos.boof.ColorPickerPreference
+			android:key="bgColor"
 			android:title="@string/bgColor"
 			android:summary="@string/bgColorSummary"
-			android:key="bgColor" />
+			android:defaultValue="0xff000000" />
 	</PreferenceCategory>
-	<com.vasilakos.boof.ColorPickerPreference 
-			android:title="koko"
-			android:summary="kikiki"
-			android:key="kikikiki" />
-	/>
 </PreferenceScreen>
