@@ -10,6 +10,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Display;
 import android.view.Menu;
@@ -79,10 +80,10 @@ public class Boof extends Activity {
 	}
 
 	public boolean onCreateOptionsMenu(Menu menu) {
-		menu.add(0, 1, 0, R.string.instructions);
-		menu.add(0, 3, 0, R.string.settings);
-		menu.add(0, 2, 0, R.string.info);
-		menu.add(0, 4, 0, R.string.donate);
+		menu.add(0, 1, 0, R.string.instructions).setIcon(R.drawable.ic_menu_help);
+		menu.add(0, 3, 0, R.string.settings).setIcon(R.drawable.ic_menu_preferences);
+		menu.add(0, 2, 0, R.string.info).setIcon(R.drawable.ic_menu_info_details);
+		menu.add(0, 4, 0, R.string.donate).setIcon(R.drawable.ic_menu_star);
 		return true;
 	}
 
@@ -98,10 +99,10 @@ public class Boof extends Activity {
 			settingsButtonClicked();
 			return true;
 		case 4:
-			// Intent browse = new Intent(
-			// Intent.ACTION_VIEW,
-			// Uri.parse(""));
-			// startActivity(browse);
+			 Intent browse = new Intent(
+			 Intent.ACTION_VIEW,
+			 Uri.parse("https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=M5HYBKFQYS84S&lc=GR&item_name=Donation%20to%20Boof%20application&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted"));
+			 startActivity(browse);
 			return true;
 		}
 		return false;
