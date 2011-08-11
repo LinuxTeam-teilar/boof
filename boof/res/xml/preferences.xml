@@ -21,7 +21,7 @@
 			android:key="bgColor"
 			android:title="@string/bgColor"
 			android:summary="@string/bgColorSummary"
-			android:defaultValue="0xff000000"
+			custom:defaultColor="0xff000000"
 			custom:player="bgColor" />
 		<PreferenceScreen
 			android:key="playersColors"
