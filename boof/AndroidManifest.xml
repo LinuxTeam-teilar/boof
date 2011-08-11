@@ -15,7 +15,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Information" android:label="@string/info"/>
+        <activity android:name=".Information"  android:label="@string/info"/>
         <activity android:name=".Instructions" android:label="@string/instructions"/>
+        <activity android:name="Preferences"  android:label="@string/preferences">
+</activity>
     </application>
 </manifest>

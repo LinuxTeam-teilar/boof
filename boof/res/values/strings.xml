@@ -6,7 +6,7 @@
 	<string name="instructions">Οδηγίες</string>
 	<string name="info">Πληροφορίες</string>
 	<string name="donate">Δωρεά</string>
-	<string name="settings">Ρυθμίσεις</string>
+	<string name="preferences">Ρυθμίσεις</string>
 	<string name="version">0.4</string>
 	<string name="description">TODO: write a description</string>
 	<string name="copyright">Copyright (c) 2011 Βασιλάκος Γεώργιος</string>
@@ -36,4 +36,13 @@
 		http://www.gnu.org/licenses/
 	</string>
 	<string name="instructionsActivityText">TODO: write instructions</string>
+	
+	<string name="noOfBoofs">Έχετε κάνει </string>
+	<string name="sounds">Ήχοι</string>
+	<string name="soundEffects">Ηχητικά εφέ</string>
+	<string name="soundEffectsSummary">Ενεργοποίηση ηχητικών εφέ στο πάτημα κουμπιών</string>
+	<string name="music">Μουσική</string>
+	<string name="musicSummary">Ενεργοποίηση μουσικής στην αρχική οθόνη</string>
+
+	
 </resources>

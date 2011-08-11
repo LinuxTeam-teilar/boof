@@ -5,6 +5,7 @@ import java.util.Random;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -12,6 +13,7 @@ import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,6 +29,8 @@ public class Boof extends Activity {
 
 	TextView noOfPlayersEt;
 	MediaPlayer bgMusic;
+	boolean soundEffects;
+	boolean music;
 
 	Integer[] songs = { R.drawable.song0, R.drawable.song1, R.drawable.song2,
 			R.drawable.song3, R.drawable.song4 };
@@ -37,14 +41,17 @@ public class Boof extends Activity {
 	@Override
 	public void onStop() {
 		super.onStop();
-		bgMusic.release();
+		if (music)
+			bgMusic.release();
 		// counter.cancel();
 
 	}
 
 	public void onStart() {
 		super.onStart();
-		
+
+		getPrefs();
+
 		TextView instrTv = (TextView) findViewById(R.id.instructionsTextView);
 		noOfPlayersEt = (TextView) findViewById(R.id.numberOfPlayersTv);
 		Typeface font = Typeface.createFromAsset(getAssets(),
@@ -52,13 +59,15 @@ public class Boof extends Activity {
 		instrTv.setTypeface(font);
 		noOfPlayersEt.setTypeface(font);
 		setRandomTextColor();
-		
+
 		Gallery ga = (Gallery) findViewById(R.id.song_select_gallery);
 		ga.setAdapter(new ImageAdapter(this));
 
-		bgMusic = MediaPlayer.create(this, R.raw.childrenplaying);
-		bgMusic.setLooping(true);
-		bgMusic.start();
+		if (music) {
+			bgMusic = MediaPlayer.create(this, R.raw.childrenplaying);
+			bgMusic.setLooping(true);
+			bgMusic.start();
+		}
 	}
 
 	@Override
@@ -80,9 +89,12 @@ public class Boof extends Activity {
 	}
 
 	public boolean onCreateOptionsMenu(Menu menu) {
-		menu.add(0, 1, 0, R.string.instructions).setIcon(R.drawable.ic_menu_help);
-		menu.add(0, 3, 0, R.string.settings).setIcon(R.drawable.ic_menu_preferences);
-		menu.add(0, 2, 0, R.string.info).setIcon(R.drawable.ic_menu_info_details);
+		menu.add(0, 1, 0, R.string.instructions).setIcon(
+				R.drawable.ic_menu_help);
+		menu.add(0, 3, 0, R.string.preferences).setIcon(
+				R.drawable.ic_menu_preferences);
+		menu.add(0, 2, 0, R.string.info).setIcon(
+				R.drawable.ic_menu_info_details);
 		menu.add(0, 4, 0, R.string.donate).setIcon(R.drawable.ic_menu_star);
 		return true;
 	}
@@ -99,27 +111,38 @@ public class Boof extends Activity {
 			settingsButtonClicked();
 			return true;
 		case 4:
-			 Intent browse = new Intent(
-			 Intent.ACTION_VIEW,
-			 Uri.parse("https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=M5HYBKFQYS84S&lc=GR&item_name=Donation%20to%20Boof%20application&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted"));
-			 startActivity(browse);
+			Intent browse = new Intent(
+					Intent.ACTION_VIEW,
+					Uri.parse("https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=M5HYBKFQYS84S&lc=GR&item_name=Donation%20to%20Boof%20application&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted"));
+			startActivity(browse);
 			return true;
 		}
 		return false;
 	}
 
 	public void instructionsButtonClicked() {
-		Intent str = new Intent(this, com.vasilakos.boof.Instructions.class);
-		startActivity(str);
+		Intent help = new Intent(this, com.vasilakos.boof.Instructions.class);
+		startActivity(help);
 	}
 
 	public void infoButtonClicked() {
-		Intent str = new Intent(this, com.vasilakos.boof.Information.class);
-		startActivity(str);
+		Intent info = new Intent(this, com.vasilakos.boof.Information.class);
+		startActivity(info);
 	}
 
 	public void settingsButtonClicked() {
-		;
+		Intent settingsActivity = new Intent(this,
+				com.vasilakos.boof.Preferences.class);
+		startActivity(settingsActivity);
+	}
+
+	private void getPrefs() {
+		// Get the xml/preferences.xml preferences
+		SharedPreferences prefs = PreferenceManager
+				.getDefaultSharedPreferences(getBaseContext());
+		soundEffects = prefs.getBoolean("soundEffects", true);
+		music = prefs.getBoolean("music", true);
+
 	}
 
 	public void setSize() {
@@ -164,20 +187,22 @@ public class Boof extends Activity {
 	}
 
 	public void playSplashSound() {
+		if (soundEffects) {
+			new Thread() {
+				public void run() {
+					MediaPlayer mp = MediaPlayer
+							.create(Boof.this, R.raw.splash);
 
-		new Thread() {
-			public void run() {
-				MediaPlayer mp = MediaPlayer.create(Boof.this, R.raw.splash);
+					mp.setOnCompletionListener(new OnCompletionListener() {
 
-				mp.setOnCompletionListener(new OnCompletionListener() {
-
-					public void onCompletion(MediaPlayer mp) {
-						mp.release();
-					}
-				});
-				mp.start();
-			}
-		}.start();
+						public void onCompletion(MediaPlayer mp) {
+							mp.release();
+						}
+					});
+					mp.start();
+				}
+			}.start();
+		}
 	}
 
 	public void boofButtonClicked(View v) {
@@ -192,7 +217,12 @@ public class Boof extends Activity {
 				mp.start();
 			}
 		}.start();
-
+		SharedPreferences prefs = PreferenceManager
+				.getDefaultSharedPreferences(getBaseContext());
+		int counter = prefs.getInt("boofs", 0);
+		SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt("boofs", ++counter);
+        editor.commit();
 	}
 
 	public class ImageAdapter extends BaseAdapter {
