@@ -50,4 +50,19 @@
 	<string name="bgColor">Χρώμα παρασκηνίου</string>
 	<string name="bgColorSummary">Αγγίξτε για να επιλέξετε το χρώμα παρασκηνίου</string>
 	
+	
+	<string name="playersColors">Χρώματα παικτών</string>
+	<string name="playersColorsSummary">Αγγίξτε για να επιλέξετε τα χρώματα των παικτών </string>
+	
+	<string name="p1ColorText">Χρώμα 1ου παίκτη</string>
+	<string name="p2ColorText">Χρώμα 2ου παίκτη</string>
+	<string name="p3ColorText">Χρώμα 3ου παίκτη</string>
+	<string name="p4ColorText">Χρώμα 4ου παίκτη</string>
+	<string name="p5ColorText">Χρώμα 5ου παίκτη</string>
+	<string name="p6ColorText">Χρώμα 6ου παίκτη</string>
+	<string name="p7ColorText">Χρώμα 7ου παίκτη</string>
+	<string name="p8ColorText">Χρώμα 8ου παίκτη</string>
+	<string name="p9ColorText">Χρώμα 9ου παίκτη</string>
+	
+	<string name="pColorSummary">Αγγίξτε για να επιλέξετε το χρώμα του παίκτη</string>
 </resources>

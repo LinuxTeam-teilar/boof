@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen
-	xmlns:android="http://schemas.android.com/apk/res/android">
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:custom="http://schemas.android.com/apk/res/com.vasilakos.boof">
 	<PreferenceCategory
 		android:title="@string/sounds">
 		<CheckBoxPreference
@@ -20,6 +21,66 @@
 			android:key="bgColor"
 			android:title="@string/bgColor"
 			android:summary="@string/bgColorSummary"
-			android:defaultValue="0xff000000" />
+			android:defaultValue="0xff000000"
+			custom:player="bgColor" />
+		<PreferenceScreen
+			android:key="playersColors"
+			android:title="@string/playersColors"
+			android:summary="@string/playersColorsSummary">
+			<com.vasilakos.boof.ColorPickerPreference
+				android:key="p1Color"
+				android:title="@string/p1ColorText"
+				android:summary="@string/pColorSummary"
+				custom:defaultColor="0xff444444"
+				custom:player="p1Color" />
+			<com.vasilakos.boof.ColorPickerPreference
+				android:key="p2Color"
+				android:title="@string/p2ColorText"
+				android:summary="@string/pColorSummary"
+				custom:defaultColor="0xff0000ff"
+				custom:player="p2Color" />
+			<com.vasilakos.boof.ColorPickerPreference
+				android:key="p3Color"
+				android:title="@string/p3ColorText"
+				android:summary="@string/pColorSummary"
+				custom:defaultColor="0xff00ff00"
+				custom:player="p3Color" />
+			<com.vasilakos.boof.ColorPickerPreference
+				android:key="p4Color"
+				android:title="@string/p4ColorText"
+				android:summary="@string/pColorSummary"
+				custom:defaultColor="0xff00ffff"
+				custom:player="p4Color" />
+			<com.vasilakos.boof.ColorPickerPreference
+				android:key="p5Color"
+				android:title="@string/p5ColorText"
+				android:summary="@string/pColorSummary"
+				custom:defaultColor="0xffff0000"
+				custom:player="p5Color" />
+			<com.vasilakos.boof.ColorPickerPreference
+				android:key="p6Color"
+				android:title="@string/p6ColorText"
+				android:summary="@string/pColorSummary"
+				custom:defaultColor="0xffff00ff"
+				custom:player="p6Color" />
+			<com.vasilakos.boof.ColorPickerPreference
+				android:key="p7Color"
+				android:title="@string/p7ColorText"
+				android:summary="@string/pColorSummary"
+				custom:defaultColor="0xffffff00"
+				custom:player="p7Color" />
+			<com.vasilakos.boof.ColorPickerPreference
+				android:key="p8Color"
+				android:title="@string/p8ColorText"
+				android:summary="@string/pColorSummary"
+				custom:defaultColor="0xff77ff77"
+				custom:player="p8Color" />
+			<com.vasilakos.boof.ColorPickerPreference
+				android:key="p9Color"
+				android:title="@string/p9ColorText"
+				android:summary="@string/pColorSummary"
+				custom:defaultColor="0xffff88ff"
+				custom:player="p9Color" />
+		</PreferenceScreen>
 	</PreferenceCategory>
 </PreferenceScreen>

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<declare-styleable name="Gallery1">
-		<attr name="android:galleryItemBackground"/>
+		<attr name="android:galleryItemBackground" />
+	</declare-styleable>
+	<declare-styleable name="ColorPickerPreference">
+		<attr name="player" format="string" />
+		<attr name="defaultColor" format="integer" />
 	</declare-styleable>
 </resources>

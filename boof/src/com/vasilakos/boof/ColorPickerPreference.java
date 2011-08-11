@@ -11,10 +11,18 @@ import android.view.View;
 
 public class ColorPickerPreference extends Preference {
 	public Integer Color = 0xff000000;
+	public String player;
 
 	public ColorPickerPreference(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		setWidgetLayoutResource(R.layout.color_picker_preference);
+
+		TypedArray a = context.obtainStyledAttributes(attrs,
+				R.styleable.ColorPickerPreference);
+
+		player = a.getString(R.styleable.ColorPickerPreference_player);
+		Color = a.getInteger(R.styleable.ColorPickerPreference_defaultColor,
+				0xff000000);
 	}
 
 	@Override
@@ -39,7 +47,7 @@ public class ColorPickerPreference extends Preference {
 						SharedPreferences customSharedPreference = getSharedPreferences();
 						SharedPreferences.Editor editor = customSharedPreference
 								.edit();
-						editor.putInt("bgColor", Color);
+						editor.putInt(player, Color);
 						editor.commit();
 						Log.d("PICKER onClick: ", "color : " + Color);
 						notifyChanged();
@@ -62,6 +70,6 @@ public class ColorPickerPreference extends Preference {
 	@Override
 	protected void onSetInitialValue(boolean restoreValue, Object defaultValue) {
 		SharedPreferences prefs = getSharedPreferences();
-		Color = prefs.getInt("bgColor", 0xff000000);
+		Color = prefs.getInt(player, Color);
 	}
 }
