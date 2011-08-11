@@ -12,4 +12,10 @@
 			android:summary="@string/musicSummary"
 			android:key="music" />
 	</PreferenceCategory>
+		<PreferenceCategory android:title="@string/colors">
+		<Preference
+			android:title="@string/bgColor"
+			android:summary="@string/bgColorSummary"
+			android:key="bgColor" />
+	</PreferenceCategory>
 </PreferenceScreen>

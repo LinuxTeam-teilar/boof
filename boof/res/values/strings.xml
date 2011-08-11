@@ -37,12 +37,17 @@
 	</string>
 	<string name="instructionsActivityText">TODO: write instructions</string>
 	
+	<string name="ok">Εφαρμογή</string>
+	<string name="cancel">Ακύρωση</string>
+	
 	<string name="noOfBoofs">Έχετε κάνει </string>
 	<string name="sounds">Ήχοι</string>
 	<string name="soundEffects">Ηχητικά εφέ</string>
 	<string name="soundEffectsSummary">Ενεργοποίηση ηχητικών εφέ στο πάτημα κουμπιών</string>
 	<string name="music">Μουσική</string>
 	<string name="musicSummary">Ενεργοποίηση μουσικής στην αρχική οθόνη</string>
-
+	<string name="colors">Χρώματα</string>
+	<string name="bgColor">Χρώμα παρασκηνίου</string>
+	<string name="bgColorSummary">Αγγίξτε για να επιλέξετε το χρώμα παρασκηνίου</string>
 	
 </resources>

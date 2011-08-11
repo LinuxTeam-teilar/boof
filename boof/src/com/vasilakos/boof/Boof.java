@@ -14,6 +14,7 @@ import android.media.MediaPlayer.OnCompletionListener;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,6 +24,7 @@ import android.view.Window;
 import android.widget.BaseAdapter;
 import android.widget.Gallery;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class Boof extends Activity {
@@ -31,6 +33,7 @@ public class Boof extends Activity {
 	MediaPlayer bgMusic;
 	boolean soundEffects;
 	boolean music;
+	Integer bgColor;
 
 	Integer[] songs = { R.drawable.song0, R.drawable.song1, R.drawable.song2,
 			R.drawable.song3, R.drawable.song4 };
@@ -59,6 +62,9 @@ public class Boof extends Activity {
 		instrTv.setTypeface(font);
 		noOfPlayersEt.setTypeface(font);
 		setRandomTextColor();
+		
+		RelativeLayout mainBg = (RelativeLayout) findViewById(R.id.mainbg);
+		mainBg.setBackgroundColor(bgColor);
 
 		Gallery ga = (Gallery) findViewById(R.id.song_select_gallery);
 		ga.setAdapter(new ImageAdapter(this));
@@ -137,12 +143,15 @@ public class Boof extends Activity {
 	}
 
 	private void getPrefs() {
-		// Get the xml/preferences.xml preferences
 		SharedPreferences prefs = PreferenceManager
 				.getDefaultSharedPreferences(getBaseContext());
 		soundEffects = prefs.getBoolean("soundEffects", true);
 		music = prefs.getBoolean("music", true);
-
+		
+		SharedPreferences mySharedPreferences = getSharedPreferences(
+                "myCustomSharedPrefs", Activity.MODE_PRIVATE);
+		bgColor = mySharedPreferences.getInt("bgColor", 0xff000000);
+		Log.d("Boof : ", "Read pref for color : " + bgColor);
 	}
 
 	public void setSize() {
