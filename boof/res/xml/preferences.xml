@@ -31,55 +31,55 @@
 				android:key="p1Color"
 				android:title="@string/p1ColorText"
 				android:summary="@string/pColorSummary"
-				custom:defaultColor="0xff444444"
+				custom:defaultColor="0xffff0000"
 				custom:player="p1Color" />
 			<com.vasilakos.boof.ColorPickerPreference
 				android:key="p2Color"
 				android:title="@string/p2ColorText"
 				android:summary="@string/pColorSummary"
-				custom:defaultColor="0xff0000ff"
+				custom:defaultColor="0xffffff00"
 				custom:player="p2Color" />
 			<com.vasilakos.boof.ColorPickerPreference
 				android:key="p3Color"
 				android:title="@string/p3ColorText"
 				android:summary="@string/pColorSummary"
-				custom:defaultColor="0xff00ff00"
+				custom:defaultColor="0xff0000ff"
 				custom:player="p3Color" />
 			<com.vasilakos.boof.ColorPickerPreference
 				android:key="p4Color"
 				android:title="@string/p4ColorText"
 				android:summary="@string/pColorSummary"
-				custom:defaultColor="0xff00ffff"
+				custom:defaultColor="0xff008000"
 				custom:player="p4Color" />
 			<com.vasilakos.boof.ColorPickerPreference
 				android:key="p5Color"
 				android:title="@string/p5ColorText"
 				android:summary="@string/pColorSummary"
-				custom:defaultColor="0xffff0000"
+				custom:defaultColor="0xffff00ff"
 				custom:player="p5Color" />
 			<com.vasilakos.boof.ColorPickerPreference
 				android:key="p6Color"
 				android:title="@string/p6ColorText"
 				android:summary="@string/pColorSummary"
-				custom:defaultColor="0xffff00ff"
+				custom:defaultColor="0xff00ff00"
 				custom:player="p6Color" />
 			<com.vasilakos.boof.ColorPickerPreference
 				android:key="p7Color"
 				android:title="@string/p7ColorText"
 				android:summary="@string/pColorSummary"
-				custom:defaultColor="0xffffff00"
+				custom:defaultColor="0xff00ffff"
 				custom:player="p7Color" />
 			<com.vasilakos.boof.ColorPickerPreference
 				android:key="p8Color"
 				android:title="@string/p8ColorText"
 				android:summary="@string/pColorSummary"
-				custom:defaultColor="0xff77ff77"
+				custom:defaultColor="0xff800000"
 				custom:player="p8Color" />
 			<com.vasilakos.boof.ColorPickerPreference
 				android:key="p9Color"
 				android:title="@string/p9ColorText"
 				android:summary="@string/pColorSummary"
-				custom:defaultColor="0xffff88ff"
+				custom:defaultColor="0xff800080"
 				custom:player="p9Color" />
 		</PreferenceScreen>
 	</PreferenceCategory>
