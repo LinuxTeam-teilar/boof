@@ -20,6 +20,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.BaseAdapter;
 import android.widget.Gallery;
 import android.widget.ImageView;
@@ -43,10 +45,25 @@ public class Boof extends Activity {
 	@Override
 	public void onStop() {
 		super.onStop();
+
 		if (music)
 			bgMusic.release();
 		// counter.cancel();
 
+	}
+	
+	@Override
+	public void onDestroy(){
+		super.onDestroy();
+		if (soundEffects) {
+			MediaPlayer mp = MediaPlayer.create(Boof.this, R.raw.bye);
+			mp.setOnCompletionListener(new OnCompletionListener() {
+				public void onCompletion(MediaPlayer mp) {
+					mp.release();
+				}
+			});
+			mp.start();
+		}
 	}
 
 	public void onStart() {
@@ -61,12 +78,64 @@ public class Boof extends Activity {
 		instrTv.setTypeface(font);
 		noOfPlayersEt.setTypeface(font);
 		setRandomTextColor();
-		
+
 		RelativeLayout mainBg = (RelativeLayout) findViewById(R.id.mainbg);
 		mainBg.setBackgroundColor(bgColor);
 
 		Gallery ga = (Gallery) findViewById(R.id.song_select_gallery);
 		ga.setAdapter(new ImageAdapter(this));
+		ga.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+			public void onItemSelected(AdapterView<?> arg0, View arg1,
+					int arg2, long arg3) {
+				if (soundEffects) {
+					new Thread() {
+						public void run() {
+							MediaPlayer mp = MediaPlayer.create(Boof.this,
+									R.raw.flip);
+
+							mp.setOnCompletionListener(new OnCompletionListener() {
+
+								public void onCompletion(MediaPlayer mp) {
+									mp.release();
+								}
+							});
+							mp.start();
+						}
+					}.start();
+				}
+
+			}
+
+			public void onNothingSelected(AdapterView<?> arg0) {
+				// TODO Auto-generated method stub
+
+			}
+		});
+
+		ImageView logo = (ImageView) findViewById(R.id.logoImg);
+		logo.setOnLongClickListener(new View.OnLongClickListener() {
+			public boolean onLongClick(View v) {
+				if (soundEffects) {
+					new Thread() {
+						public void run() {
+							MediaPlayer mp = MediaPlayer.create(Boof.this,
+									R.raw.throat);
+
+							mp.setOnCompletionListener(new OnCompletionListener() {
+
+								public void onCompletion(MediaPlayer mp) {
+									mp.release();
+								}
+							});
+							mp.start();
+						}
+					}.start();
+				}
+				return false;
+			}
+
+		});
 
 		if (music) {
 			bgMusic = MediaPlayer.create(this, R.raw.childrenplaying);
@@ -225,8 +294,8 @@ public class Boof extends Activity {
 				.getDefaultSharedPreferences(getBaseContext());
 		int counter = prefs.getInt("boofs", 0);
 		SharedPreferences.Editor editor = prefs.edit();
-        editor.putInt("boofs", ++counter);
-        editor.commit();
+		editor.putInt("boofs", ++counter);
+		editor.commit();
 	}
 
 	public class ImageAdapter extends BaseAdapter {
