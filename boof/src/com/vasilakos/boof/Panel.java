@@ -6,7 +6,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
-import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
@@ -32,7 +31,7 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback {
 
 		createPaints();
 		setPaintColors();
-		Integer size = Boof.getScreenSize();
+		Integer size = Main.getScreenSize();
 		rect = new RectF(space / 2, space / 2 + 10, size - space / 2, size
 				- space / 2);
 		 
