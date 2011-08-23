@@ -40,6 +40,8 @@
 	<string name="ok">Εφαρμογή</string>
 	<string name="cancel">Ακύρωση</string>
 	
+	<string name="noSelectedSong">Δεν έχετε επιλέξει κάποιο τραγούδι για αναπαραγωγή!</string>
+	
 	<string name="noOfBoofs">Έχετε κάνει </string>
 	<string name="sounds">Ήχοι</string>
 	<string name="soundEffects">Ηχητικά εφέ</string>

@@ -14,7 +14,7 @@
    height="1052.3622047"
    id="svg2"
    version="1.1"
-   inkscape:version="0.48.1 "
+   inkscape:version="0.48.1 r9760"
    sodipodi:docname="boof_buttons.svg">
   <defs
      id="defs4">
@@ -860,16 +860,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.35355339"
-     inkscape:cx="822.59169"
-     inkscape:cy="326.28341"
+     inkscape:zoom="0.5"
+     inkscape:cx="104.25928"
+     inkscape:cy="-754.90629"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1280"
-     inkscape:window-height="911"
-     inkscape:window-x="-4"
-     inkscape:window-y="-4"
+     inkscape:window-height="966"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
      showguides="true"
      inkscape:guide-bbox="true">
@@ -1490,17 +1490,17 @@
     <text
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
-       x="165.35217"
+       x="153.33144"
        y="1348.2787"
        id="text4779"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4781"
-         x="165.35217"
+         x="153.33144"
          y="1348.2787"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;font-family:UB-Script;-inkscape-font-specification:UB-Script"
-         dy="14 0 -31 0 0 0 0 0 0 38"
-         dx="0 0 23 0 0 0 0 0 0 17">Α μπεμπα μπλομ</tspan></text>
+         dy="8.3431473 0 -28.171574 0 0 36.76955 0 0 -24.041626 36.585785"
+         dx="0 0 23 0 0 24.041626 0 0 0 17">Α μπεμπα μπλομ</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text4783"
@@ -2634,5 +2634,124 @@
        id="path6754"
        inkscape:connector-curvature="0"
        transform="matrix(0.52298845,0.8759985,-0.73998498,0.6726234,498.81681,-534.37264)" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="C:\Documents and Settings\deyal\Τα έγγραφά μου\Downloads\temp\git\boof\boof\res\drawable-hdpi\song4.png"
+       y="1753.7729"
+       x="76.729744"
+       height="100"
+       width="520"
+       id="rect3905"
+       style="fill:#4d4d4d;fill-opacity:1;stroke:none" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
+       x="201.92055"
+       y="1808.9329"
+       id="text3907"
+       sodipodi:linespacing="125%"><tspan
+         dy="-12.727921 0 0 0 0 0 19.798986 0 0 0 0 0"
+         dx="0 0 0 0 0 0 14.142134 0 0 0 0 0"
+         sodipodi:role="line"
+         id="tspan3909"
+         x="201.92055"
+         y="1808.9329"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;font-family:UB-Script;-inkscape-font-specification:UB-Script">Άκατα μάκατα</tspan></text>
+    <rect
+       style="fill:#4d4d4d;fill-opacity:1;stroke:none"
+       id="rect3911"
+       width="520"
+       height="100"
+       x="76.729744"
+       y="1876.8096"
+       inkscape:export-filename="/home/forfolias/git/boof/boof/res/drawable-hdpi/song5.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text3913"
+       y="1933.0238"
+       x="171.17409"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;font-family:UB-Script;-inkscape-font-specification:UB-Script"
+         y="1933.0238"
+         x="171.17409"
+         id="tspan3915"
+         sodipodi:role="line"
+         dx="0 0 0 14.142134 0 0 0 0 0 0 12.727921"
+         dy="0 0 0 19.798986 0 0 0 0 0 0 -42.426411">Σι μαριαμ μαριαμ</tspan></text>
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/forfolias/git/boof/boof/res/drawable-hdpi/song6.png"
+       y="1998.4319"
+       x="76.729744"
+       height="100"
+       width="520"
+       id="rect3917"
+       style="fill:#4d4d4d;fill-opacity:1;stroke:none" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
+       x="185.80911"
+       y="2048.4065"
+       id="text3919"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3921"
+         x="185.80911"
+         y="2048.4065"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;font-family:UB-Script;-inkscape-font-specification:UB-Script"
+         dy="0 0 16.97056">Ο Καρακατσάνης</tspan></text>
+    <rect
+       style="fill:#4d4d4d;fill-opacity:1;stroke:none"
+       id="rect3923"
+       width="520"
+       height="100"
+       x="76.729744"
+       y="2117.2258"
+       inkscape:export-filename="/home/forfolias/git/boof/boof/res/drawable-hdpi/song7.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text3925"
+       y="2171.729"
+       x="185.80911"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;font-family:UB-Script;-inkscape-font-specification:UB-Script"
+         y="2171.729"
+         x="185.80911"
+         id="tspan3927"
+         sodipodi:role="line"
+         dy="0 0 0 0 -14.142134 0 0 39.59798"
+         dx="0 0 0 0 19.798986 0 0 18.384773">Ένα δύο τρία</tspan></text>
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/forfolias/git/boof/boof/res/drawable-hdpi/song8.png"
+       y="2237.4341"
+       x="76.729744"
+       height="100"
+       width="520"
+       id="rect3929"
+       style="fill:#4d4d4d;fill-opacity:1;stroke:none" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
+       x="222.43095"
+       y="2309.9521"
+       id="text3931"
+       sodipodi:linespacing="125%"><tspan
+         dx="0 0 0 21.2132 0 0 0 0 0 0 0"
+         dy="0 0 0 -15.556347 0 0 0 0 0 0 0"
+         sodipodi:role="line"
+         id="tspan3933"
+         x="222.43095"
+         y="2309.9521"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;font-family:UB-Script;-inkscape-font-specification:UB-Script">Το γουρούνι</tspan></text>
   </g>
 </svg>

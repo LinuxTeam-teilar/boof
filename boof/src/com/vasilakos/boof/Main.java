@@ -38,7 +38,8 @@ public class Main extends Activity {
 	public Integer bgColor;
 
 	Integer[] songs = { R.drawable.song0, R.drawable.song1, R.drawable.song2,
-			R.drawable.song3, R.drawable.song4 };
+			R.drawable.song3, R.drawable.song4, R.drawable.song5,
+			R.drawable.song6, R.drawable.song7, R.drawable.song8 };
 
 	public static Integer size;
 
@@ -288,14 +289,14 @@ public class Main extends Activity {
 					}
 				}.start();
 			}
-			
+
 			SharedPreferences prefs = PreferenceManager
 					.getDefaultSharedPreferences(getBaseContext());
 			int counter = prefs.getInt("boofs", 0);
 			SharedPreferences.Editor editor = prefs.edit();
 			editor.putInt("boofs", ++counter);
 			editor.commit();
-			
+
 			Intent view = new Intent(this, com.vasilakos.boof.Boof.class);
 			Bundle b = new Bundle();
 			b.putInt("players",
@@ -306,7 +307,18 @@ public class Main extends Activity {
 			view.putExtras(b);
 			startActivity(view);
 		} else {
-			Toast.makeText(getApplicationContext(), "ERROR", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(),
+					getResources().getString(R.string.noSelectedSong),
+					Toast.LENGTH_SHORT).show();
+			if (soundEffects) {
+				MediaPlayer mp = MediaPlayer.create(Main.this, R.raw.fail);
+				mp.setOnCompletionListener(new OnCompletionListener() {
+					public void onCompletion(MediaPlayer mp) {
+						mp.release();
+					}
+				});
+				mp.start();
+			}
 		}
 	}
 
