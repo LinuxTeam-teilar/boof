@@ -17,18 +17,18 @@ public class Boof extends Activity {
 		Log.d("debug", "players : " + players.toString());
 		Log.d("debug", "song    : " + song.toString());
 		
-		// Panel p = new Panel(this);
+		 Panel p = new Panel(this, players);
 
-		// setContentView(p);
+		 setContentView(p);
 
-		// counter = new MyCount(10000, 100, p);
-		// counter.start();
+		 counter = new MyCount(10000, 100, p, players);
+		 counter.start();
 	}
 	
 	@Override
 	public void onStop() {
 		super.onStop();
-		// counter.cancel();
+		 counter.cancel();
 
 	}
 }
