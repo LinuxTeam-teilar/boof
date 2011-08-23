@@ -51,9 +51,9 @@ public class Boof extends Activity {
 		// counter.cancel();
 
 	}
-	
+
 	@Override
-	public void onDestroy(){
+	public void onDestroy() {
 		super.onDestroy();
 		if (soundEffects) {
 			MediaPlayer mp = MediaPlayer.create(Boof.this, R.raw.bye);
@@ -104,7 +104,6 @@ public class Boof extends Activity {
 						}
 					}.start();
 				}
-
 			}
 
 			public void onNothingSelected(AdapterView<?> arg0) {
@@ -113,29 +112,31 @@ public class Boof extends Activity {
 			}
 		});
 
-		ImageView logo = (ImageView) findViewById(R.id.logoImg);
-		logo.setOnLongClickListener(new View.OnLongClickListener() {
-			public boolean onLongClick(View v) {
-				if (soundEffects) {
-					new Thread() {
-						public void run() {
-							MediaPlayer mp = MediaPlayer.create(Boof.this,
-									R.raw.throat);
+		ImageView logo = null;
+		logo = (ImageView) findViewById(R.id.logoImg);
+		if (logo != null) {
+			logo.setOnLongClickListener(new View.OnLongClickListener() {
+				public boolean onLongClick(View v) {
+					if (soundEffects) {
+						new Thread() {
+							public void run() {
+								MediaPlayer mp = MediaPlayer.create(Boof.this,
+										R.raw.throat);
 
-							mp.setOnCompletionListener(new OnCompletionListener() {
+								mp.setOnCompletionListener(new OnCompletionListener() {
 
-								public void onCompletion(MediaPlayer mp) {
-									mp.release();
-								}
-							});
-							mp.start();
-						}
-					}.start();
+									public void onCompletion(MediaPlayer mp) {
+										mp.release();
+									}
+								});
+								mp.start();
+							}
+						}.start();
+					}
+					return false;
 				}
-				return false;
-			}
-
-		});
+			});
+		}
 
 		if (music) {
 			bgMusic = MediaPlayer.create(this, R.raw.childrenplaying);
