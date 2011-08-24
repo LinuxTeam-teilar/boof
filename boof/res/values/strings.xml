@@ -36,36 +36,45 @@
 		http://www.gnu.org/licenses/
 	</string>
 	<string name="instructionsActivityText">TODO: write instructions</string>
-	
+
 	<string name="ok">Εφαρμογή</string>
 	<string name="cancel">Ακύρωση</string>
-	
-	<string name="noSelectedSong">Δεν έχετε επιλέξει κάποιο τραγούδι για αναπαραγωγή!</string>
-	<string name="scrollToSelectSong">Σύρετε για να επιλέξετε τραγούδι!\n
-	Κρατήστε πατημένο για προεπισκόπιση του επιλεγμένου τραγουδιού</string>
-	
-	
+
+	<string name="noSelectedSong">Δεν έχετε επιλέξει κάποιο τραγούδι για αναπαραγωγή!
+	</string>
+	<string name="scrollToSelectSong">Σύρετε για να επιλέξετε τραγούδι!\nΚρατήστε
+		πατημένο για προεπισκόπιση του επιλεγμένου τραγουδιού!</string>
+
+
 	<string name="noOfBoofs">Έχετε κάνει </string>
 	<string name="sounds">Ήχοι</string>
 	<string name="soundEffects">Ηχητικά εφέ</string>
-	<string name="soundEffectsSummary">Ενεργοποίηση ηχητικών εφέ στο πάτημα κουμπιών</string>
+	<string name="soundEffectsSummary">Ενεργοποίηση ηχητικών εφέ στο πάτημα κουμπιών
+	</string>
 	<string name="music">Μουσική</string>
 	<string name="musicSummary">Ενεργοποίηση μουσικής στην αρχική οθόνη</string>
 	<string name="colors">Χρώματα</string>
 	<string name="bgColor">Χρώμα παρασκηνίου</string>
-	<string name="bgColorSummary">Αγγίξτε για να επιλέξετε το χρώμα παρασκηνίου</string>
+	<string name="bgColorSummary">Αγγίξτε για να επιλέξετε το χρώμα παρασκηνίου
+	</string>
+	<string name="textColor">Χρώμα κειμένου</string>
+	<string name="textColorSummary">Αγγίξτε για να επιλέξετε το χρώμα κειμένου
+	</string>
 	<string name="generic">Γενικά</string>
 	<string name="randomPlayerStart">Τυχαία εκκίνηση</string>
 	<string name="randomPlayerStartSummary">Εκκίνηση κύκλου απο τυχαία θέση</string>
 	<string name="randomSongSselect">Τυχαίο τραγούδι</string>
-	<string name="randomSongSselectSummary">Επιλογή τυχαίου τραγουδιού στην αρχική οθόνη</string>
+	<string name="randomSongSselectSummary">Επιλογή τυχαίου τραγουδιού στην αρχική οθόνη
+	</string>
 	<string name="previewSeconds">Διάρκεια προεπισκόπισης</string>
-	<string name="previewSecondsSummary">Διάρκεια προεπισκόπισης τραγουδιού σε δευτερόλεπτα</string>
-	
-	
+	<string name="previewSecondsSummary">Διάρκεια προεπισκόπισης τραγουδιού σε δευτερόλεπτα
+	</string>
+
+
 	<string name="playersColors">Χρώματα παικτών</string>
-	<string name="playersColorsSummary">Αγγίξτε για να επιλέξετε τα χρώματα των παικτών </string>
-	
+	<string name="playersColorsSummary">Αγγίξτε για να επιλέξετε τα χρώματα των παικτών
+	</string>
+
 	<string name="p1ColorText">Χρώμα 1ου παίκτη</string>
 	<string name="p2ColorText">Χρώμα 2ου παίκτη</string>
 	<string name="p3ColorText">Χρώμα 3ου παίκτη</string>
@@ -75,6 +84,7 @@
 	<string name="p7ColorText">Χρώμα 7ου παίκτη</string>
 	<string name="p8ColorText">Χρώμα 8ου παίκτη</string>
 	<string name="p9ColorText">Χρώμα 9ου παίκτη</string>
-	
-	<string name="pColorSummary">Αγγίξτε για να επιλέξετε το χρώμα του παίκτη</string>
+
+	<string name="pColorSummary">Αγγίξτε για να επιλέξετε το χρώμα του παίκτη
+	</string>
 </resources>

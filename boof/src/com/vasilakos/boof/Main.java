@@ -17,6 +17,7 @@ import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.view.Display;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -39,7 +40,7 @@ public class Main extends Activity {
 	public MediaPlayer bgMusic, preview;
 	public boolean soundEffects;
 	public boolean music;
-	public Integer bgColor;
+	public Integer bgColor, textColor;
 
 	Integer[] songs = { R.drawable.song0, R.drawable.song1, R.drawable.song2,
 			R.drawable.song3, R.drawable.song4, R.drawable.song5,
@@ -79,6 +80,7 @@ public class Main extends Activity {
 		Typeface font = Typeface.createFromAsset(getAssets(),
 				"fonts/ubscript.ttf");
 		instrTv.setTypeface(font);
+		instrTv.setTextColor(textColor);
 		noOfPlayersEt.setTypeface(font);
 		setRandomTextColor();
 
@@ -125,29 +127,43 @@ public class Main extends Activity {
 					});
 					mp.start();
 				}
-				Toast t = Toast.makeText(getApplicationContext(),
-						getResources().getString(R.string.scrollToSelectSong),
-						Toast.LENGTH_SHORT);
-				t.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 50);
-				t.show();
+
+				LayoutInflater inflater = getLayoutInflater();
+				View layout = inflater.inflate(R.layout.dialog_box,
+						(ViewGroup) findViewById(R.id.dialogBoxLayout));
+				TextView tdialogBoxTextView = (TextView) layout
+						.findViewById(R.id.dialogBoxText);
+				tdialogBoxTextView.setBackgroundColor(bgColor);
+				tdialogBoxTextView.setTextColor(textColor);
+				Typeface font = Typeface.createFromAsset(getAssets(),
+						"fonts/ubscript.ttf");
+				tdialogBoxTextView.setTypeface(font);
+
+				Toast toastView = new Toast(getBaseContext());
+				toastView.setView(layout);
+				toastView.setGravity(Gravity.RIGHT | Gravity.TOP, 0, 10);
+				toastView.setDuration(Toast.LENGTH_LONG);
+				toastView.show();
 			}
 		});
 
 		ga.setOnItemLongClickListener(new OnItemLongClickListener() {
 			public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
 					int arg2, long arg3) {
-				
-				preview = MediaPlayer.create(getApplicationContext(), R.raw.childrenplaying);
-				
+
+				preview = MediaPlayer.create(getApplicationContext(),
+						R.raw.childrenplaying);
+
 				SharedPreferences prefs = PreferenceManager
 						.getDefaultSharedPreferences(getBaseContext());
-				
-				int milis = Integer.parseInt(prefs.getString("previewSeconds", "5000"));
+
+				int milis = Integer.parseInt(prefs.getString("previewSeconds",
+						"5000"));
 				if (milis == 0)
 					milis = preview.getDuration();
-				
+
 				preview.start();
-				
+
 				Handler handler = new Handler();
 				handler.postDelayed(new Runnable() {
 					public void run() {
@@ -262,6 +278,7 @@ public class Main extends Activity {
 		soundEffects = prefs.getBoolean("soundEffects", true);
 		music = prefs.getBoolean("music", true);
 		bgColor = prefs.getInt("bgColor", Color.BLACK);
+		textColor = prefs.getInt("textColor", Color.WHITE);
 	}
 
 	public void setSize() {
@@ -360,10 +377,32 @@ public class Main extends Activity {
 			view.putExtras(b);
 			startActivity(view);
 		} else {
-			Toast t = Toast.makeText(getApplicationContext(), getResources()
-					.getString(R.string.noSelectedSong), Toast.LENGTH_SHORT);
-			t.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 50);
-			t.show();
+			
+			LayoutInflater inflater = getLayoutInflater();
+			View layout = inflater.inflate(R.layout.dialog_box,
+					(ViewGroup) findViewById(R.id.dialogBoxLayout));
+			TextView dialogBoxTextView = (TextView) layout
+					.findViewById(R.id.dialogBoxText);
+			dialogBoxTextView.setBackgroundColor(bgColor);
+			dialogBoxTextView.setTextColor(textColor);
+			Typeface font = Typeface.createFromAsset(getAssets(),
+					"fonts/ubscript.ttf");
+			dialogBoxTextView.setTypeface(font);
+			dialogBoxTextView.setText(getResources().getString(R.string.noSelectedSong));
+			dialogBoxTextView.setLineSpacing(5, 1);
+
+			Toast toastView = new Toast(getBaseContext());
+			toastView.setView(layout);
+			toastView.setGravity(Gravity.RIGHT | Gravity.TOP, 0, 45);
+			toastView.setDuration(Toast.LENGTH_LONG);
+			toastView.show();
+			
+			
+			
+//			Toast t = Toast.makeText(getApplicationContext(), getResources()
+//					.getString(R.string.noSelectedSong), Toast.LENGTH_SHORT);
+//			t.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 50);
+//			t.show();
 			if (soundEffects) {
 				MediaPlayer mp = MediaPlayer.create(Main.this, R.raw.fail);
 				mp.setOnCompletionListener(new OnCompletionListener() {

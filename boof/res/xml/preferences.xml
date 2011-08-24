@@ -21,6 +21,12 @@
 			android:summary="@string/bgColorSummary"
 			custom:defaultColor="0xff000000"
 			custom:player="bgColor" />
+		<com.vasilakos.boof.ColorPickerPreference
+			android:key="textColor"
+			android:title="@string/textColor"
+			android:summary="@string/textColorSummary"
+			custom:defaultColor="0xffffffff"
+			custom:player="textColor" />
 		<PreferenceScreen
 			android:key="playersColors"
 			android:title="@string/playersColors"
@@ -92,13 +98,12 @@
 			android:defaultValue="true"
 			android:summary="@string/randomSongSselectSummary"
 			android:key="randomSong" />
-        <ListPreference 
-            android:key="previewSeconds"
-            android:title="@string/previewSeconds"
-            android:summary="@string/previewSecondsSummary"
-            android:defaultValue="3000" 
-            android:entries="@array/previewText"
-            android:entryValues="@array/previewValues"
-        />    
+		<ListPreference
+			android:key="previewSeconds"
+			android:title="@string/previewSeconds"
+			android:summary="@string/previewSecondsSummary"
+			android:defaultValue="3000"
+			android:entries="@array/previewText"
+			android:entryValues="@array/previewValues" />
 	</PreferenceCategory>
 </PreferenceScreen>
