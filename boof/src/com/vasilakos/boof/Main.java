@@ -131,7 +131,11 @@ public class Main extends Activity {
 			}
 
 		});
-		ga.setSelection(new Random().nextInt(songs.length), true);
+
+		SharedPreferences prefs = PreferenceManager
+				.getDefaultSharedPreferences(getBaseContext());
+		if (prefs.getBoolean("randomSong", true))
+			ga.setSelection(new Random().nextInt(songs.length), true);
 
 		ImageView logo = null;
 		logo = (ImageView) findViewById(R.id.logoImg);

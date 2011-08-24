@@ -21,7 +21,7 @@ public class Boof extends Activity {
 
 		 setContentView(p);
 
-		 counter = new MyCount(10000, 100, p, players);
+		 counter = new MyCount(10000, 100, p, players, getBaseContext());
 		 counter.start();
 	}
 	

@@ -53,7 +53,11 @@
 	<string name="colors">Χρώματα</string>
 	<string name="bgColor">Χρώμα παρασκηνίου</string>
 	<string name="bgColorSummary">Αγγίξτε για να επιλέξετε το χρώμα παρασκηνίου</string>
-	
+	<string name="generic">Γενικά</string>
+	<string name="randomPlayerStart">Τυχαία εκκίνηση</string>
+	<string name="randomPlayerStartSummary">Εκκίνηση κύκλου απο τυχαία θέση</string>
+	<string name="randomSongSselect">Τυχαίο τραγούδι</string>
+	<string name="randomSongSselectSummary">Επιλογή τυχαίου τραγουδιού στην αρχική οθόνη</string>
 	
 	<string name="playersColors">Χρώματα παικτών</string>
 	<string name="playersColorsSummary">Αγγίξτε για να επιλέξετε τα χρώματα των παικτών </string>

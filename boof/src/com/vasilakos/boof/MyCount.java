@@ -2,7 +2,10 @@ package com.vasilakos.boof;
 
 import java.util.Random;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.CountDownTimer;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
 public class MyCount extends CountDownTimer {
@@ -18,11 +21,16 @@ public class MyCount extends CountDownTimer {
 	}
 
 	public MyCount(int millisInFuture, int countDownInterval, Panel p,
-			Integer noOfPlayers) {
+			Integer noOfPlayers, Context context) {
 		super(millisInFuture, countDownInterval);
 		panel = p;
 		players = noOfPlayers;
-		current = new Random().nextInt(noOfPlayers);
+		SharedPreferences prefs = PreferenceManager
+				.getDefaultSharedPreferences(context);
+		if (prefs.getBoolean("randomPlayer", true))
+			current = new Random().nextInt(noOfPlayers);
+		else
+			current = 0;
 		current++;
 		Log.d("koko", "current : " + current.toString());
 		next = current + 1;
@@ -36,15 +44,16 @@ public class MyCount extends CountDownTimer {
 	public void onFinish() {
 		Log.d(this.toString(), "done!");
 		Integer i;
-		for(i=1;i<=players;i++){
-			if( i != previous ){
+		for (i = 1; i <= players; i++) {
+			if (i != previous) {
 				Panel.setSelectedPaintColor(i);
-				Log.d("koko", "i : " + i + "p : " + previous + " c : " + current + " n : " + next);
-			}else{
+				Log.d("koko", "i : " + i + "p : " + previous + " c : "
+						+ current + " n : " + next);
+			} else {
 				Panel.setDefaultPlayerColor(i);
 			}
 		}
-//		Panel.setAllDefaultPaintColors();
+		// Panel.setAllDefaultPaintColors();
 		c = 1;
 	}
 
@@ -58,8 +67,8 @@ public class MyCount extends CountDownTimer {
 
 		if (c < song.length)
 			if (secs <= song[0] - song[c]) {
-//				Log.d("koko", secs + "<= " + (song[0] - song[c]) + " , c : "
-//						+ c);
+				// Log.d("koko", secs + "<= " + (song[0] - song[c]) + " , c : "
+				// + c);
 				timeToChangeColor();
 				c++;
 			}

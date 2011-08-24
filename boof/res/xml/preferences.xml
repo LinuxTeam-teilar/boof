@@ -2,8 +2,7 @@
 <PreferenceScreen
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:custom="http://schemas.android.com/apk/res/com.vasilakos.boof">
-	<PreferenceCategory
-		android:title="@string/sounds">
+	<PreferenceCategory android:title="@string/sounds">
 		<CheckBoxPreference
 			android:title="@string/soundEffects"
 			android:defaultValue="true"
@@ -15,8 +14,7 @@
 			android:summary="@string/musicSummary"
 			android:key="music" />
 	</PreferenceCategory>
-	<PreferenceCategory
-		android:title="@string/colors">
+	<PreferenceCategory android:title="@string/colors">
 		<com.vasilakos.boof.ColorPickerPreference
 			android:key="bgColor"
 			android:title="@string/bgColor"
@@ -82,5 +80,17 @@
 				custom:defaultColor="0xff800080"
 				custom:player="p9Color" />
 		</PreferenceScreen>
+	</PreferenceCategory>
+	<PreferenceCategory android:title="@string/generic">
+		<CheckBoxPreference
+			android:title="@string/randomPlayerStart"
+			android:defaultValue="true"
+			android:summary="@string/randomPlayerStartSummary"
+			android:key="randomPlayer" />
+		<CheckBoxPreference
+			android:title="@string/randomSongSselect"
+			android:defaultValue="true"
+			android:summary="@string/randomSongSselectSummary"
+			android:key="randomSong" />
 	</PreferenceCategory>
 </PreferenceScreen>
