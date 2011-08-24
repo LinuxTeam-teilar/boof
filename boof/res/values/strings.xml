@@ -41,7 +41,8 @@
 	<string name="cancel">Ακύρωση</string>
 	
 	<string name="noSelectedSong">Δεν έχετε επιλέξει κάποιο τραγούδι για αναπαραγωγή!</string>
-	<string name="scrollToSelectSong">Σύρετε για να επιλέξετε τραγούδι!</string>
+	<string name="scrollToSelectSong">Σύρετε για να επιλέξετε τραγούδι!\n
+	Κρατήστε πατημένο για προεπισκόπιση του επιλεγμένου τραγουδιού</string>
 	
 	
 	<string name="noOfBoofs">Έχετε κάνει </string>
@@ -58,6 +59,9 @@
 	<string name="randomPlayerStartSummary">Εκκίνηση κύκλου απο τυχαία θέση</string>
 	<string name="randomSongSselect">Τυχαίο τραγούδι</string>
 	<string name="randomSongSselectSummary">Επιλογή τυχαίου τραγουδιού στην αρχική οθόνη</string>
+	<string name="previewSeconds">Διάρκεια προεπισκόπισης</string>
+	<string name="previewSecondsSummary">Διάρκεια προεπισκόπισης τραγουδιού σε δευτερόλεπτα</string>
+	
 	
 	<string name="playersColors">Χρώματα παικτών</string>
 	<string name="playersColorsSummary">Αγγίξτε για να επιλέξετε τα χρώματα των παικτών </string>

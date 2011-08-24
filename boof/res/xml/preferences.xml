@@ -92,5 +92,13 @@
 			android:defaultValue="true"
 			android:summary="@string/randomSongSselectSummary"
 			android:key="randomSong" />
+        <ListPreference 
+            android:key="previewSeconds"
+            android:title="@string/previewSeconds"
+            android:summary="@string/previewSecondsSummary"
+            android:defaultValue="3000" 
+            android:entries="@array/previewText"
+            android:entryValues="@array/previewValues"
+        />    
 	</PreferenceCategory>
 </PreferenceScreen>

@@ -13,6 +13,7 @@ import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.view.Display;
 import android.view.Gravity;
@@ -23,6 +24,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.BaseAdapter;
 import android.widget.Gallery;
@@ -34,7 +36,7 @@ import android.widget.Toast;
 public class Main extends Activity {
 
 	public TextView noOfPlayersEt;
-	public MediaPlayer bgMusic;
+	public MediaPlayer bgMusic, preview;
 	public boolean soundEffects;
 	public boolean music;
 	public Integer bgColor;
@@ -129,7 +131,32 @@ public class Main extends Activity {
 				t.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 50);
 				t.show();
 			}
+		});
 
+		ga.setOnItemLongClickListener(new OnItemLongClickListener() {
+			public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
+					int arg2, long arg3) {
+				
+				preview = MediaPlayer.create(getApplicationContext(), R.raw.childrenplaying);
+				
+				SharedPreferences prefs = PreferenceManager
+						.getDefaultSharedPreferences(getBaseContext());
+				
+				int milis = Integer.parseInt(prefs.getString("previewSeconds", "5000"));
+				if (milis == 0)
+					milis = preview.getDuration();
+				
+				preview.start();
+				
+				Handler handler = new Handler();
+				handler.postDelayed(new Runnable() {
+					public void run() {
+						preview.stop();
+					}
+				}, milis);
+
+				return false;
+			}
 		});
 
 		SharedPreferences prefs = PreferenceManager

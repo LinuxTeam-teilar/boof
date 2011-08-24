@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.preference.Preference;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 public class ColorPickerPreference extends Preference {
@@ -49,7 +48,6 @@ public class ColorPickerPreference extends Preference {
 								.edit();
 						editor.putInt(player, Color);
 						editor.commit();
-						Log.d("PICKER onClick: ", "color : " + Color);
 						notifyChanged();
 					}
 				});

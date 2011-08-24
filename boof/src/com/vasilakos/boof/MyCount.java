@@ -7,9 +7,11 @@ import android.content.SharedPreferences;
 import android.os.CountDownTimer;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.widget.Toast;
 
 public class MyCount extends CountDownTimer {
 	public Panel panel;
+	Context context;
 	public Integer current, next, previous;
 	public String prevPlayer;
 	public Integer c, players;
@@ -21,10 +23,11 @@ public class MyCount extends CountDownTimer {
 	}
 
 	public MyCount(int millisInFuture, int countDownInterval, Panel p,
-			Integer noOfPlayers, Context context) {
+			Integer noOfPlayers, Context cont) {
 		super(millisInFuture, countDownInterval);
 		panel = p;
 		players = noOfPlayers;
+		context = cont;
 		SharedPreferences prefs = PreferenceManager
 				.getDefaultSharedPreferences(context);
 		if (prefs.getBoolean("randomPlayer", true))
@@ -47,13 +50,11 @@ public class MyCount extends CountDownTimer {
 		for (i = 1; i <= players; i++) {
 			if (i != previous) {
 				Panel.setSelectedPaintColor(i);
-				Log.d("koko", "i : " + i + "p : " + previous + " c : "
-						+ current + " n : " + next);
 			} else {
 				Panel.setDefaultPlayerColor(i);
 			}
 		}
-		// Panel.setAllDefaultPaintColors();
+		Toast.makeText(context, "Player " + previous + " won!", Toast.LENGTH_LONG).show();
 		c = 1;
 	}
 
@@ -62,13 +63,8 @@ public class MyCount extends CountDownTimer {
 		double secs = (double) millisUntilFinished / 1000;
 		secs = Math.floor(secs * 10 + .5) / 10;
 
-		// Log.d("koko", "OUT OF IF :" + secs + ">= " + (song[0] - song[c])
-		// + " , c : " + c);
-
 		if (c < song.length)
 			if (secs <= song[0] - song[c]) {
-				// Log.d("koko", secs + "<= " + (song[0] - song[c]) + " , c : "
-				// + c);
 				timeToChangeColor();
 				c++;
 			}
@@ -83,6 +79,5 @@ public class MyCount extends CountDownTimer {
 		next++;
 		if (next > players)
 			next = 1;
-		Log.d("koko", "p : " + previous + " c : " + current + " n : " + next);
 	}
 }
