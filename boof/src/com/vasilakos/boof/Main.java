@@ -15,12 +15,14 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.Display;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.BaseAdapter;
 import android.widget.Gallery;
@@ -84,7 +86,6 @@ public class Main extends Activity {
 		Gallery ga = (Gallery) findViewById(R.id.song_select_gallery);
 		ga.setAdapter(new ImageAdapter(this));
 		ga.setOnItemSelectedListener(new OnItemSelectedListener() {
-
 			public void onItemSelected(AdapterView<?> arg0, View arg1,
 					int arg2, long arg3) {
 				if (soundEffects) {
@@ -110,6 +111,27 @@ public class Main extends Activity {
 
 			}
 		});
+		ga.setOnItemClickListener(new OnItemClickListener() {
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+					long arg3) {
+				if (soundEffects) {
+					MediaPlayer mp = MediaPlayer.create(Main.this, R.raw.fail);
+					mp.setOnCompletionListener(new OnCompletionListener() {
+						public void onCompletion(MediaPlayer mp) {
+							mp.release();
+						}
+					});
+					mp.start();
+				}
+				Toast t = Toast.makeText(getApplicationContext(),
+						getResources().getString(R.string.scrollToSelectSong),
+						Toast.LENGTH_SHORT);
+				t.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 50);
+				t.show();
+			}
+
+		});
+		ga.setSelection(new Random().nextInt(songs.length), true);
 
 		ImageView logo = null;
 		logo = (ImageView) findViewById(R.id.logoImg);
@@ -208,7 +230,7 @@ public class Main extends Activity {
 				.getDefaultSharedPreferences(getBaseContext());
 		soundEffects = prefs.getBoolean("soundEffects", true);
 		music = prefs.getBoolean("music", true);
-		bgColor = prefs.getInt("bgColor", 0xff000000);
+		bgColor = prefs.getInt("bgColor", Color.BLACK);
 	}
 
 	public void setSize() {
@@ -307,9 +329,10 @@ public class Main extends Activity {
 			view.putExtras(b);
 			startActivity(view);
 		} else {
-			Toast.makeText(getApplicationContext(),
-					getResources().getString(R.string.noSelectedSong),
-					Toast.LENGTH_SHORT).show();
+			Toast t = Toast.makeText(getApplicationContext(), getResources()
+					.getString(R.string.noSelectedSong), Toast.LENGTH_SHORT);
+			t.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 50);
+			t.show();
 			if (soundEffects) {
 				MediaPlayer mp = MediaPlayer.create(Main.this, R.raw.fail);
 				mp.setOnCompletionListener(new OnCompletionListener() {

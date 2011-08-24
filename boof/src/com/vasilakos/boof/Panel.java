@@ -37,7 +37,7 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback {
 		players = noOfPlayers;
 
 		createPaints();
-		setDefaultPaintColors();
+		setAllDefaultPaintColors();
 		Integer size = Main.getScreenSize();
 		rect = new RectF(space / 2, space / 2 + 10, size - space / 2, size
 				- space / 2);
@@ -47,7 +47,9 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback {
 	}
 
 	public void doDraw(Canvas canvas) {
-		canvas.drawColor(Color.BLACK);
+		SharedPreferences prefs = PreferenceManager
+				.getDefaultSharedPreferences(cnt);
+		canvas.drawColor(prefs.getInt("bgColor", Color.BLACK));
 
 		Float len = (float) 360 / players;
 		// Log.d(this.toString(), "len : " + len.toString());
@@ -119,55 +121,136 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback {
 		p9 = new Paint();
 	}
 
-	public static int getDefaultPlayerColor(String player){
+	public static int getDefaultPlayerColor1(Integer player) {
 		Integer color = 0;
 		SharedPreferences prefs = PreferenceManager
 				.getDefaultSharedPreferences(cnt);
-		
-		if (player == "p1"){
+
+		if (player == 1) {
 			color = prefs.getInt("p1Color", Color.parseColor("#ffff0000"));
-		}else if (player == "p2"){
+		} else if (player == 2) {
 			color = prefs.getInt("p2Color", Color.parseColor("#ffffff00"));
-		}else if (player == "p3"){
+		} else if (player == 3) {
 			color = prefs.getInt("p3Color", Color.parseColor("#ff0000ff"));
-		}else if (player == "p4"){
+		} else if (player == 4) {
 			color = prefs.getInt("p4Color", Color.parseColor("#ff008000"));
-		}else if (player == "p5"){
+		} else if (player == 5) {
 			color = prefs.getInt("p5Color", Color.parseColor("#ffff00ff"));
-		}else if (player == "p6"){
+		} else if (player == 6) {
 			color = prefs.getInt("p6Color", Color.parseColor("#ff00ff00"));
-		}else if (player == "p7"){
+		} else if (player == 7) {
 			color = prefs.getInt("p7Color", Color.parseColor("#ff00ffff"));
-		}else if (player == "p8"){
+		} else if (player == 8) {
 			color = prefs.getInt("p8Color", Color.parseColor("#ff800000"));
-		}else if (player == "p9"){
+		} else if (player == 9) {
 			color = prefs.getInt("p9Color", Color.parseColor("#ff800080"));
 		}
-		
+
 		return color;
-		
+
 	}
 
-	public static void setDefaultPaintColors() {
+	public static int getDefaultPlayerColor(Integer player) {
 		SharedPreferences prefs = PreferenceManager
 				.getDefaultSharedPreferences(cnt);
 
-		p1.setColor(prefs.getInt("p1Color", Color.parseColor("#ffff0000")));
-		p2.setColor(prefs.getInt("p2Color", Color.parseColor("#ffffff00")));
-		p3.setColor(prefs.getInt("p3Color", Color.parseColor("#ff0000ff")));
-		p4.setColor(prefs.getInt("p4Color", Color.parseColor("#ff008000")));
-		p5.setColor(prefs.getInt("p5Color", Color.parseColor("#ffff00ff")));
-		p6.setColor(prefs.getInt("p6Color", Color.parseColor("#ff00ff00")));
-		p7.setColor(prefs.getInt("p7Color", Color.parseColor("#ff00ffff")));
-		p8.setColor(prefs.getInt("p8Color", Color.parseColor("#ff800000")));
-		p9.setColor(prefs.getInt("p9Color", Color.parseColor("#ff800080")));
+		switch (player) {
+		case 1:
+			return prefs.getInt("p1Color", Color.parseColor("#ffff0000"));
+		case 2:
+			return prefs.getInt("p2Color", Color.parseColor("#ffffff00"));
+		case 3:
+			return prefs.getInt("p3Color", Color.parseColor("#ff0000ff"));
+		case 4:
+			return prefs.getInt("p4Color", Color.parseColor("#ff008000"));
+		case 5:
+			return prefs.getInt("p5Color", Color.parseColor("#ffff00ff"));
+		case 6:
+			return prefs.getInt("p6Color", Color.parseColor("#ff00ff00"));
+		case 7:
+			return prefs.getInt("p7Color", Color.parseColor("#ff00ffff"));
+		case 8:
+			return prefs.getInt("p8Color", Color.parseColor("#ff800000"));
+		case 9:
+			return prefs.getInt("p9Color", Color.parseColor("#ff800080"));
+		default:
+			return Color.TRANSPARENT;
+		}
+	}
+	
+	public static void setDefaultPlayerColor(Integer player){
+		switch (player) {
+		case 1:
+			p1.setColor(getDefaultPlayerColor(player));
+			break;
+		case 2:
+			p2.setColor(getDefaultPlayerColor(player));
+			break;
+		case 3:
+			p3.setColor(getDefaultPlayerColor(player));
+			break;
+		case 4:
+			p4.setColor(getDefaultPlayerColor(player));
+			break;
+		case 5:
+			p5.setColor(getDefaultPlayerColor(player));
+			break;
+		case 6:
+			p6.setColor(getDefaultPlayerColor(player));
+			break;
+		case 7:
+			p7.setColor(getDefaultPlayerColor(player));
+			break;
+		case 8:
+			p8.setColor(getDefaultPlayerColor(player));
+			break;
+		case 9:
+			p9.setColor(getDefaultPlayerColor(player));
+			break;
+		}
 	}
 
-	public static void setSelectedPaintColor(Paint p) {
-		p.setColor(Color.BLACK);
+	public static void setAllDefaultPaintColors() {
+		p1.setColor(getDefaultPlayerColor(1));
+		p2.setColor(getDefaultPlayerColor(2));
+		p3.setColor(getDefaultPlayerColor(3));
+		p4.setColor(getDefaultPlayerColor(4));
+		p5.setColor(getDefaultPlayerColor(5));
+		p6.setColor(getDefaultPlayerColor(6));
+		p7.setColor(getDefaultPlayerColor(7));
+		p8.setColor(getDefaultPlayerColor(8));
+		p9.setColor(getDefaultPlayerColor(9));
 	}
 
-	public static void setUnselectedPaintColor(Paint p, String pst) {
-		p.setColor(Panel.getDefaultPlayerColor(pst));
+	public static void setSelectedPaintColor(Integer player) {
+		switch (player) {
+		case 1:
+			p1.setColor(Color.TRANSPARENT);
+			break;
+		case 2:
+			p2.setColor(Color.TRANSPARENT);
+			break;
+		case 3:
+			p3.setColor(Color.TRANSPARENT);
+			break;
+		case 4:
+			p4.setColor(Color.TRANSPARENT);
+			break;
+		case 5:
+			p5.setColor(Color.TRANSPARENT);
+			break;
+		case 6:
+			p6.setColor(Color.TRANSPARENT);
+			break;
+		case 7:
+			p7.setColor(Color.TRANSPARENT);
+			break;
+		case 8:
+			p8.setColor(Color.TRANSPARENT);
+			break;
+		case 9:
+			p9.setColor(Color.TRANSPARENT);
+			break;
+		}
 	}
 }
