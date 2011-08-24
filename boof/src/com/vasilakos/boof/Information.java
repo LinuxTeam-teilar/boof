@@ -17,6 +17,8 @@ import android.text.method.LinkMovementMethod;
 import android.text.util.Linkify;
 import android.view.Gravity;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -45,8 +47,10 @@ public class Information extends Activity {
 		cont.setMovementMethod(LinkMovementMethod.getInstance());
 		link.setMovementMethod(LinkMovementMethod.getInstance());
 
-		ImageView img = (ImageView) findViewById(R.id.infoImage);
-		img.setOnLongClickListener(new View.OnLongClickListener() {
+		ImageView logo = (ImageView) findViewById(R.id.infoImage);
+		Animation anim = AnimationUtils.loadAnimation(this, R.anim.logo_animation);
+        logo.startAnimation(anim);
+		logo.setOnLongClickListener(new View.OnLongClickListener() {
 
 			public boolean onLongClick(View v) {
 				SharedPreferences prefs = PreferenceManager

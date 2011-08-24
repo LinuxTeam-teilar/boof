@@ -23,6 +23,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
@@ -41,6 +43,7 @@ public class Main extends Activity {
 	public boolean soundEffects;
 	public boolean music;
 	public Integer bgColor, textColor;
+	public Animation anim;
 
 	Integer[] songs = { R.drawable.song0, R.drawable.song1, R.drawable.song2,
 			R.drawable.song3, R.drawable.song4, R.drawable.song5,
@@ -81,6 +84,7 @@ public class Main extends Activity {
 				"fonts/ubscript.ttf");
 		instrTv.setTypeface(font);
 		instrTv.setTextColor(textColor);
+		instrTv.startAnimation(anim);
 		noOfPlayersEt.setTypeface(font);
 		setRandomTextColor();
 
@@ -183,6 +187,8 @@ public class Main extends Activity {
 		ImageView logo = null;
 		logo = (ImageView) findViewById(R.id.logoImg);
 		if (logo != null) {
+	        logo.startAnimation(anim);
+	        
 			logo.setOnLongClickListener(new View.OnLongClickListener() {
 				public boolean onLongClick(View v) {
 					if (soundEffects) {
@@ -279,6 +285,7 @@ public class Main extends Activity {
 		music = prefs.getBoolean("music", true);
 		bgColor = prefs.getInt("bgColor", Color.BLACK);
 		textColor = prefs.getInt("textColor", Color.WHITE);
+		anim = AnimationUtils.loadAnimation(this, R.anim.logo_animation);
 	}
 
 	public void setSize() {
