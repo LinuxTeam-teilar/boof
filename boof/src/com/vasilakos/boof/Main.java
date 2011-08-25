@@ -145,7 +145,7 @@ public class Main extends Activity {
 
 				Toast toastView = new Toast(getBaseContext());
 				toastView.setView(layout);
-				toastView.setGravity(Gravity.RIGHT | Gravity.TOP, 0, 10);
+				toastView.setGravity(Gravity.RIGHT | Gravity.TOP, 0, 0);
 				toastView.setDuration(Toast.LENGTH_LONG);
 				toastView.show();
 			}
@@ -400,16 +400,10 @@ public class Main extends Activity {
 
 			Toast toastView = new Toast(getBaseContext());
 			toastView.setView(layout);
-			toastView.setGravity(Gravity.RIGHT | Gravity.TOP, 0, 45);
+			toastView.setGravity(Gravity.RIGHT | Gravity.TOP, 0, 10);
 			toastView.setDuration(Toast.LENGTH_LONG);
 			toastView.show();
-			
-			
-			
-//			Toast t = Toast.makeText(getApplicationContext(), getResources()
-//					.getString(R.string.noSelectedSong), Toast.LENGTH_SHORT);
-//			t.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 50);
-//			t.show();
+
 			if (soundEffects) {
 				MediaPlayer mp = MediaPlayer.create(Main.this, R.raw.fail);
 				mp.setOnCompletionListener(new OnCompletionListener() {

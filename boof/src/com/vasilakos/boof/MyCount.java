@@ -35,7 +35,6 @@ public class MyCount extends CountDownTimer {
 		else
 			current = 0;
 		current++;
-		Log.d("koko", "current : " + current.toString());
 		next = current + 1;
 		if (next > players)
 			next = 1;

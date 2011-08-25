@@ -35,7 +35,7 @@
 		with this program. If not, see
 		http://www.gnu.org/licenses/
 	</string>
-	<string name="instructionsActivityText">TODO: write instructions</string>
+	<string name="instructionsActivityText"> • όλοι οι παίκτες σχηματίστε έναν κύκλο.\n\n • τοποθετήστε τη συσκευή στο κέντρο του κύκλου.\n\n • επιλέξτε τον αριθμό των παικτών και το τραγούδι που θέλετε να ακουστεί\n\n • πατήστε “Μπούφ!”</string>
 
 	<string name="ok">Εφαρμογή</string>
 	<string name="cancel">Ακύρωση</string>
@@ -43,7 +43,7 @@
 	<string name="noSelectedSong">Δεν έχετε επιλέξει κάποιο τραγούδι για αναπαραγωγή!
 	</string>
 	<string name="scrollToSelectSong">Σύρετε για να επιλέξετε τραγούδι!\nΚρατήστε
-		πατημένο για προεπισκόπιση του επιλεγμένου τραγουδιού!</string>
+		πατημένο για προεπισκόπιση του τραγουδιού!</string>
 
 
 	<string name="noOfBoofs">Έχετε κάνει </string>
