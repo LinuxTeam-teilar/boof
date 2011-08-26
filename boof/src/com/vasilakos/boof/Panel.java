@@ -33,7 +33,6 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback {
 		super(context);
 
 		cnt = context;
-
 		players = noOfPlayers;
 
 		createPaints();
@@ -52,11 +51,10 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback {
 		canvas.drawColor(prefs.getInt("bgColor", Color.BLACK));
 
 		Float len = (float) 360 / players;
-		// Log.d(this.toString(), "len : " + len.toString());
 		Float start = (float) 0;
+		
 		int i = 0;
 		for (i = 1; i <= players; i++) {
-			// Log.d(this.toString(), "i: " + i);
 			switch (i) {
 			case 1:
 				canvas.drawArc(rect, start, len, true, p1);

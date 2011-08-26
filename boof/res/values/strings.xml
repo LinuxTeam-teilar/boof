@@ -35,7 +35,10 @@
 		with this program. If not, see
 		http://www.gnu.org/licenses/
 	</string>
-	<string name="instructionsActivityText"> • όλοι οι παίκτες σχηματίστε έναν κύκλο.\n\n • τοποθετήστε τη συσκευή στο κέντρο του κύκλου.\n\n • επιλέξτε τον αριθμό των παικτών και το τραγούδι που θέλετε να ακουστεί\n\n • πατήστε “Μπούφ!”</string>
+	<string name="instructionsActivityText"> • όλοι οι παίκτες σχηματίστε έναν κύκλο.\n\n •
+		τοποθετήστε τη συσκευή στο κέντρο του κύκλου.\n\n • επιλέξτε τον
+		αριθμό των παικτών και το τραγούδι που θέλετε να ακουστεί\n\n •
+		πατήστε “Μπούφ!”</string>
 
 	<string name="ok">Εφαρμογή</string>
 	<string name="cancel">Ακύρωση</string>
@@ -43,7 +46,8 @@
 	<string name="noSelectedSong">Δεν έχετε επιλέξει κάποιο τραγούδι για αναπαραγωγή!
 	</string>
 	<string name="scrollToSelectSong">Σύρετε για να επιλέξετε τραγούδι!\nΚρατήστε
-		πατημένο για προεπισκόπιση του τραγουδιού!</string>
+		πατημένο για προεπισκόπιση του τραγουδιού!
+	</string>
 
 
 	<string name="noOfBoofs">Έχετε κάνει </string>
@@ -61,6 +65,8 @@
 	<string name="textColorSummary">Αγγίξτε για να επιλέξετε το χρώμα κειμένου
 	</string>
 	<string name="generic">Γενικά</string>
+	<string name="cycleDirection">Κατεύθυνση περιστροφής</string>
+	<string name="cycleDirectionSummary">Αλλάξτε την κατεύθυνση περιστροφής του κύκλου</string>
 	<string name="randomPlayerStart">Τυχαία εκκίνηση</string>
 	<string name="randomPlayerStartSummary">Εκκίνηση κύκλου απο τυχαία θέση</string>
 	<string name="randomSongSselect">Τυχαίο τραγούδι</string>

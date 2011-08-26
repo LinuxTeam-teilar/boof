@@ -161,7 +161,7 @@ public class Main extends Activity {
 				SharedPreferences prefs = PreferenceManager
 						.getDefaultSharedPreferences(getBaseContext());
 
-				int milis = Integer.parseInt(prefs.getString("previewSeconds",
+				int milis = Integer.parseInt(prefs.getString("previewDuration",
 						"5000"));
 				if (milis == 0)
 					milis = preview.getDuration();

@@ -93,13 +93,20 @@
 			android:defaultValue="true"
 			android:summary="@string/randomPlayerStartSummary"
 			android:key="randomPlayer" />
+		<ListPreference
+			android:key="cycleDirection"
+			android:title="@string/cycleDirection"
+			android:summary="@string/cycleDirectionSummary"
+			android:defaultValue="1"
+			android:entries="@array/directionText"
+			android:entryValues="@array/directionValues" />
 		<CheckBoxPreference
 			android:title="@string/randomSongSselect"
 			android:defaultValue="true"
 			android:summary="@string/randomSongSselectSummary"
 			android:key="randomSong" />
 		<ListPreference
-			android:key="previewSeconds"
+			android:key="previewDuration"
 			android:title="@string/previewSeconds"
 			android:summary="@string/previewSecondsSummary"
 			android:defaultValue="3000"
