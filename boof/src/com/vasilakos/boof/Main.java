@@ -15,7 +15,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
-import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -44,19 +43,22 @@ public class Main extends Activity {
 	public boolean music;
 	public Integer bgColor, textColor;
 	public Animation anim;
+	public static Typeface font;
 
 	Integer[] songs = { R.drawable.song0, R.drawable.song1, R.drawable.song2,
 			R.drawable.song3, R.drawable.song4, R.drawable.song5,
 			R.drawable.song6, R.drawable.song7, R.drawable.song8 };
 
-	public static Integer size;
-
 	@Override
 	public void onStop() {
 		super.onStop();
 
-		if (music)
-			bgMusic.release();
+		if (music) {
+			if (bgMusic.isPlaying())
+				bgMusic.release();
+			if (preview.isPlaying())
+				preview.release();
+		}
 	}
 
 	@Override
@@ -75,17 +77,9 @@ public class Main extends Activity {
 
 	public void onStart() {
 		super.onStart();
+		
+		readPreferences();
 
-		getPrefs();
-
-		TextView instrTv = (TextView) findViewById(R.id.instructionsTextView);
-		noOfPlayersEt = (TextView) findViewById(R.id.numberOfPlayersTv);
-		Typeface font = Typeface.createFromAsset(getAssets(),
-				"fonts/ubscript.ttf");
-		instrTv.setTypeface(font);
-		instrTv.setTextColor(textColor);
-		instrTv.startAnimation(anim);
-		noOfPlayersEt.setTypeface(font);
 		setRandomTextColor();
 
 		RelativeLayout mainBg = (RelativeLayout) findViewById(R.id.mainbg);
@@ -139,8 +133,6 @@ public class Main extends Activity {
 						.findViewById(R.id.dialogBoxText);
 				tdialogBoxTextView.setBackgroundColor(bgColor);
 				tdialogBoxTextView.setTextColor(textColor);
-				Typeface font = Typeface.createFromAsset(getAssets(),
-						"fonts/ubscript.ttf");
 				tdialogBoxTextView.setTypeface(font);
 
 				Toast toastView = new Toast(getBaseContext());
@@ -187,8 +179,8 @@ public class Main extends Activity {
 		ImageView logo = null;
 		logo = (ImageView) findViewById(R.id.logoImg);
 		if (logo != null) {
-	        logo.startAnimation(anim);
-	        
+			logo.startAnimation(anim);
+
 			logo.setOnLongClickListener(new View.OnLongClickListener() {
 				public boolean onLongClick(View v) {
 					if (soundEffects) {
@@ -227,7 +219,6 @@ public class Main extends Activity {
 
 		setContentView(R.layout.main);
 
-		setSize();
 	}
 
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -278,7 +269,7 @@ public class Main extends Activity {
 		startActivity(settingsActivity);
 	}
 
-	private void getPrefs() {
+	private void readPreferences() {
 		SharedPreferences prefs = PreferenceManager
 				.getDefaultSharedPreferences(getBaseContext());
 		soundEffects = prefs.getBoolean("soundEffects", true);
@@ -286,20 +277,15 @@ public class Main extends Activity {
 		bgColor = prefs.getInt("bgColor", Color.BLACK);
 		textColor = prefs.getInt("textColor", Color.WHITE);
 		anim = AnimationUtils.loadAnimation(this, R.anim.logo_animation);
-	}
-
-	public void setSize() {
-		Display display = getWindowManager().getDefaultDisplay();
-		Integer width = display.getWidth();
-		Integer height = display.getHeight();
-		if (width < height)
-			size = width;
-		else
-			size = height;
-	}
-
-	public static Integer getScreenSize() {
-		return size;
+		
+		font = Typeface.createFromAsset(getAssets(),
+				"fonts/ubscript.ttf");
+		noOfPlayersEt = (TextView) findViewById(R.id.numberOfPlayersTv);
+		TextView instrTv = (TextView) findViewById(R.id.instructionsTextView);
+		instrTv.setTypeface(font);
+		instrTv.setTextColor(textColor);
+		instrTv.startAnimation(anim);
+		noOfPlayersEt.setTypeface(font);
 	}
 
 	public void plusButtonClicked(View v) {
@@ -384,7 +370,7 @@ public class Main extends Activity {
 			view.putExtras(b);
 			startActivity(view);
 		} else {
-			
+
 			LayoutInflater inflater = getLayoutInflater();
 			View layout = inflater.inflate(R.layout.dialog_box,
 					(ViewGroup) findViewById(R.id.dialogBoxLayout));
@@ -392,10 +378,10 @@ public class Main extends Activity {
 					.findViewById(R.id.dialogBoxText);
 			dialogBoxTextView.setBackgroundColor(bgColor);
 			dialogBoxTextView.setTextColor(textColor);
-			Typeface font = Typeface.createFromAsset(getAssets(),
-					"fonts/ubscript.ttf");
+
 			dialogBoxTextView.setTypeface(font);
-			dialogBoxTextView.setText(getResources().getString(R.string.noSelectedSong));
+			dialogBoxTextView.setText(getResources().getString(
+					R.string.noSelectedSong));
 			dialogBoxTextView.setLineSpacing(5, 1);
 
 			Toast toastView = new Toast(getBaseContext());

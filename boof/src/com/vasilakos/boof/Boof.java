@@ -2,7 +2,7 @@ package com.vasilakos.boof;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.Display;
 
 public class Boof extends Activity {
 
@@ -14,15 +14,14 @@ public class Boof extends Activity {
 		Bundle b = this.getIntent().getExtras();
 		Integer players = b.getInt("players");
 		Integer song = b.getInt("song");
-		Log.d("debug", "players : " + players.toString());
-		Log.d("debug", "song    : " + song.toString());
+		Display display = getWindowManager().getDefaultDisplay();
 		
-		 Panel p = new Panel(this, players);
+		Panel p = new Panel(this, players, display.getWidth(), display.getHeight());
 
-		 setContentView(p);
+		setContentView(p);
 
-		 counter = new MyCount(10000, 100, p, players, getBaseContext());
-		 counter.start();
+		counter = new MyCount(10000, 100, p, players, getBaseContext());
+		counter.start();
 	}
 	
 	@Override

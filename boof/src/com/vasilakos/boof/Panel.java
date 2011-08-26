@@ -7,12 +7,12 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 public class Panel extends SurfaceView implements SurfaceHolder.Callback {
 
-	public static Float space = (float) 50;
 	public static Paint p1;
 	public static Paint p2;
 	public static Paint p3;
@@ -29,7 +29,7 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback {
 
 	private ViewThread mThread;
 
-	public Panel(Context context, Integer noOfPlayers) {
+	public Panel(Context context, Integer noOfPlayers, int width, int height) {
 		super(context);
 
 		cnt = context;
@@ -37,9 +37,20 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback {
 
 		createPaints();
 		setAllDefaultPaintColors();
-		Integer size = Main.getScreenSize();
-		rect = new RectF(space / 2, space / 2 + 10, size - space / 2, size
-				- space / 2);
+
+		int rectWidth = 0, rectHeight = 0, horizontalSpace = 50, verticalSpace = 80;
+		
+		if (height > width) {
+			rectWidth = width - horizontalSpace;
+			verticalSpace = (height - rectWidth) / 2;
+			rectHeight = rectWidth - horizontalSpace + verticalSpace;
+		}
+
+		Log.d("koko", "w : " + width + ", h : " + height);
+		Log.d("koko", "HS : " + horizontalSpace + ", VS" + verticalSpace
+				+ ", RW : " + rectWidth + ", RH : " + rectHeight);
+
+		rect = new RectF(horizontalSpace, verticalSpace, rectWidth, rectHeight);
 
 		getHolder().addCallback(this);
 		mThread = new ViewThread(this);
@@ -51,8 +62,8 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback {
 		canvas.drawColor(prefs.getInt("bgColor", Color.BLACK));
 
 		Float len = (float) 360 / players;
-		Float start = (float) 0;
-		
+		Float start = (float) -90;
+
 		int i = 0;
 		for (i = 1; i <= players; i++) {
 			switch (i) {
@@ -175,8 +186,8 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback {
 			return Color.TRANSPARENT;
 		}
 	}
-	
-	public static void setDefaultPlayerColor(Integer player){
+
+	public static void setDefaultPlayerColor(Integer player) {
 		switch (player) {
 		case 1:
 			p1.setColor(getDefaultPlayerColor(player));

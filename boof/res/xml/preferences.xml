@@ -13,6 +13,13 @@
 			android:defaultValue="true"
 			android:summary="@string/musicSummary"
 			android:key="music" />
+		<ListPreference
+			android:key="previewDuration"
+			android:title="@string/previewSeconds"
+			android:summary="@string/previewSecondsSummary"
+			android:defaultValue="3000"
+			android:entries="@array/previewText"
+			android:entryValues="@array/previewValues" />
 	</PreferenceCategory>
 	<PreferenceCategory android:title="@string/colors">
 		<com.vasilakos.boof.ColorPickerPreference
@@ -88,11 +95,6 @@
 		</PreferenceScreen>
 	</PreferenceCategory>
 	<PreferenceCategory android:title="@string/generic">
-		<CheckBoxPreference
-			android:title="@string/randomPlayerStart"
-			android:defaultValue="true"
-			android:summary="@string/randomPlayerStartSummary"
-			android:key="randomPlayer" />
 		<ListPreference
 			android:key="cycleDirection"
 			android:title="@string/cycleDirection"
@@ -101,16 +103,14 @@
 			android:entries="@array/directionText"
 			android:entryValues="@array/directionValues" />
 		<CheckBoxPreference
+			android:title="@string/randomPlayerStart"
+			android:defaultValue="true"
+			android:summary="@string/randomPlayerStartSummary"
+			android:key="randomPlayer" />
+		<CheckBoxPreference
 			android:title="@string/randomSongSselect"
 			android:defaultValue="true"
 			android:summary="@string/randomSongSselectSummary"
 			android:key="randomSong" />
-		<ListPreference
-			android:key="previewDuration"
-			android:title="@string/previewSeconds"
-			android:summary="@string/previewSecondsSummary"
-			android:defaultValue="3000"
-			android:entries="@array/previewText"
-			android:entryValues="@array/previewValues" />
 	</PreferenceCategory>
 </PreferenceScreen>
