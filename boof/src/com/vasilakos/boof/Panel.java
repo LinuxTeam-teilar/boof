@@ -38,16 +38,21 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback {
 		createPaints();
 		setAllDefaultPaintColors();
 
-		int rectWidth = 0, rectHeight = 0, horizontalSpace = 50, verticalSpace = 80;
+		int rectWidth = 0, rectHeight = 0, horizontalSpace = (int) (width*0.1), verticalSpace = (int) (height*0.1);
 		
 		if (height > width) {
 			rectWidth = width - horizontalSpace;
-			verticalSpace = (height - rectWidth) / 2;
+			verticalSpace = (height - rectWidth + horizontalSpace) / 2 ;
 			rectHeight = rectWidth - horizontalSpace + verticalSpace;
+		}
+		if (height < width) {
+			rectHeight = height - verticalSpace;
+			horizontalSpace = verticalSpace;
+			rectWidth = rectHeight - verticalSpace + horizontalSpace;
 		}
 
 		Log.d("koko", "w : " + width + ", h : " + height);
-		Log.d("koko", "HS : " + horizontalSpace + ", VS" + verticalSpace
+		Log.d("koko", "HS : " + horizontalSpace + ", VS : " + verticalSpace
 				+ ", RW : " + rectWidth + ", RH : " + rectHeight);
 
 		rect = new RectF(horizontalSpace, verticalSpace, rectWidth, rectHeight);

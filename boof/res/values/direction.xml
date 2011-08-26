@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string-array name="directionText">
-		<item name="1">δεξιόστροφα</item>
-		<item name="-1">αριστερόστροφα</item>
+		<item name="1">Δεξιόστροφα</item>
+		<item name="-1">Αριστερόστροφα</item>
 	</string-array>
 
 	<string-array name="directionValues">
