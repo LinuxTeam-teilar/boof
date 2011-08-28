@@ -56,8 +56,15 @@ public class Main extends Activity {
 		if (music) {
 			if (bgMusic.isPlaying())
 				bgMusic.release();
-			if (preview.isPlaying())
+		}
+		try {
+			if (preview.isPlaying()) {
+				preview.stop();
 				preview.release();
+				preview = null;
+			}
+		} catch (Exception e) {
+			return;
 		}
 	}
 
@@ -77,7 +84,7 @@ public class Main extends Activity {
 
 	public void onStart() {
 		super.onStart();
-		
+
 		readPreferences();
 
 		setRandomTextColor();
@@ -147,26 +154,62 @@ public class Main extends Activity {
 			public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
 					int arg2, long arg3) {
 
-				preview = MediaPlayer.create(getApplicationContext(),
-						R.raw.childrenplaying);
-
-				SharedPreferences prefs = PreferenceManager
-						.getDefaultSharedPreferences(getBaseContext());
-
-				int milis = Integer.parseInt(prefs.getString("previewDuration",
-						"5000"));
-				if (milis == 0)
-					milis = preview.getDuration();
-
-				preview.start();
-
-				Handler handler = new Handler();
-				handler.postDelayed(new Runnable() {
-					public void run() {
-						preview.stop();
+				if (preview != null) {
+					try {
+						if (preview.isPlaying()) {
+							preview.stop();
+							preview.release();
+							preview = null;
+						}
+					} catch (Exception e) {
+						return false;
 					}
-				}, milis);
+				} else {
+					
+					LayoutInflater inflater = getLayoutInflater();
+					View layout = inflater.inflate(R.layout.dialog_box,
+							(ViewGroup) findViewById(R.id.dialogBoxLayout));
+					TextView tdialogBoxTextView = (TextView) layout
+							.findViewById(R.id.dialogBoxText);
+					tdialogBoxTextView.setBackgroundColor(bgColor);
+					tdialogBoxTextView.setTextColor(textColor);
+					tdialogBoxTextView.setTypeface(font);
+					tdialogBoxTextView.setText(getResources().getString(
+							R.string.stopPreview));
+					tdialogBoxTextView.setLineSpacing(5, 1);
+					Toast toastView = new Toast(getBaseContext());
+					toastView.setView(layout);
+					toastView.setGravity(Gravity.RIGHT | Gravity.TOP, 0, 0);
+					toastView.setDuration(Toast.LENGTH_LONG);
+					toastView.show();
+					
+					preview = MediaPlayer.create(getApplicationContext(),
+							R.raw.childrenplaying);
 
+					SharedPreferences prefs = PreferenceManager
+							.getDefaultSharedPreferences(getBaseContext());
+					int milis = Integer.parseInt(prefs.getString(
+							"previewDuration", "5000"));
+					if (milis == 0)
+						milis = preview.getDuration();
+
+					preview.start();
+
+					Handler handler = new Handler();
+					handler.postDelayed(new Runnable() {
+						public void run() {
+							try {
+								if (preview.isPlaying()) {
+									preview.stop();
+									preview.release();
+									preview = null;
+								}
+							} catch (Exception e) {
+								return;
+							}
+						}
+					}, milis);
+				}
 				return false;
 			}
 		});
@@ -277,9 +320,8 @@ public class Main extends Activity {
 		bgColor = prefs.getInt("bgColor", Color.BLACK);
 		textColor = prefs.getInt("textColor", Color.WHITE);
 		anim = AnimationUtils.loadAnimation(this, R.anim.logo_animation);
-		
-		font = Typeface.createFromAsset(getAssets(),
-				"fonts/ubscript.ttf");
+
+		font = Typeface.createFromAsset(getAssets(), "fonts/ubscript.ttf");
 		noOfPlayersEt = (TextView) findViewById(R.id.numberOfPlayersTv);
 		TextView instrTv = (TextView) findViewById(R.id.instructionsTextView);
 		instrTv.setTypeface(font);
