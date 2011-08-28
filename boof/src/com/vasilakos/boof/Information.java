@@ -16,6 +16,8 @@ import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.text.util.Linkify;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -48,8 +50,9 @@ public class Information extends Activity {
 		link.setMovementMethod(LinkMovementMethod.getInstance());
 
 		ImageView logo = (ImageView) findViewById(R.id.infoImage);
-		Animation anim = AnimationUtils.loadAnimation(this, R.anim.logo_animation);
-        logo.startAnimation(anim);
+		Animation anim = AnimationUtils.loadAnimation(this,
+				R.anim.logo_animation);
+		logo.startAnimation(anim);
 		logo.setOnLongClickListener(new View.OnLongClickListener() {
 
 			public boolean onLongClick(View v) {
@@ -83,23 +86,41 @@ public class Information extends Activity {
 		});
 	}
 
-	public void donateButtonClicked(View v) {
-		Intent browse = new Intent(
-				Intent.ACTION_VIEW,
-				Uri.parse("https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=M5HYBKFQYS84S&lc=GR&item_name=Donation%20to%20Boof%20application&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted"));
-		startActivity(browse);
+	public boolean onCreateOptionsMenu(Menu menu) {
+		menu.add(0, 1, 0, R.string.licence).setIcon(
+				R.drawable.ic_menu_info_details);
+		menu.add(0, 2, 0, R.string.credits).setIcon(
+				R.drawable.ic_menu_allfriends);
+		menu.add(0, 3, 0, R.string.donate).setIcon(R.drawable.ic_menu_star);
+		return true;
 	}
 
-	public void licenceButtonClicked(View v) {
-		AlertDialog.Builder alertbox = new AlertDialog.Builder(this);
-		alertbox.setMessage(getResources().getString(R.string.licenceText))
-				.setTitle(getResources().getString(R.string.licence));
-		alertbox.setNeutralButton(getResources().getString(R.string.back),
-				new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface arg0, int arg1) {
-					}
-				});
-		alertbox.show();
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case 1:
+			AlertDialog.Builder alertbox = new AlertDialog.Builder(this);
+			alertbox.setMessage(getResources().getString(R.string.licenceText))
+					.setTitle(getResources().getString(R.string.licence));
+			alertbox.setNeutralButton(getResources().getString(R.string.back),
+					new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface arg0, int arg1) {
+						}
+					});
+			alertbox.setIcon(R.drawable.ic_menu_info_details);
+			alertbox.show();
+			return true;
+		case 2:
+			Intent info = new Intent(this, com.vasilakos.boof.Credits.class);
+			startActivity(info);
+			return true;
+		case 3:
+			Intent browse = new Intent(
+					Intent.ACTION_VIEW,
+					Uri.parse("https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=M5HYBKFQYS84S&lc=GR&item_name=Donation%20to%20Boof%20application&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted"));
+			startActivity(browse);
+			return true;
+		}
+		return false;
 	}
 
 }

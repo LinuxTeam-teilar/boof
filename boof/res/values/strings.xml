@@ -6,6 +6,7 @@
 	<string name="instructions">Οδηγίες</string>
 	<string name="info">Πληροφορίες</string>
 	<string name="donate">Δωρεά</string>
+	<string name="credits">Μνεία</string>
 	<string name="preferences">Ρυθμίσεις</string>
 	<string name="version">0.4</string>
 	<string name="description">TODO: write a description</string>
@@ -35,6 +36,17 @@
 		with this program. If not, see
 		http://www.gnu.org/licenses/
 	</string>
+	<string name="idea">Ιδέα</string>
+	<string name="developer">Βασιλάκος Γεώργιος</string>
+	<string name="programming">Προγραμματισμός</string>
+	<string name="graphicDesign">Γραφικά</string>
+	<string name="voices">Φωνητικά</string>
+	<string name="voice1">Φωνη 1</string>
+	<string name="voice2">Φωνη 2</string>
+	<string name="betaTesters">Δοκιμαστικός έλεγχος</string>
+	<string name="betaTester1">Ράνια Μάρου</string>
+	
+
 	<string name="instructionsActivityText"> • όλοι οι παίκτες σχηματίστε έναν κύκλο.\n\n •
 		τοποθετήστε τη συσκευή στο κέντρο του κύκλου.\n\n • επιλέξτε τον
 		αριθμό των παικτών και το τραγούδι που θέλετε να ακουστεί\n\n •
@@ -50,7 +62,8 @@
 		πατημένο για προεπισκόπιση του τραγουδιού!
 	</string>
 	<string name="stopPreview">Κρατήστε ξανά πατημένο για διακοπή της
-		προεπισκόπισης</string>
+		προεπισκόπισης
+	</string>
 
 
 	<string name="noOfBoofs">Έχετε κάνει </string>
