@@ -81,6 +81,8 @@
 	<string name="textColorSummary">Αγγίξτε για να επιλέξετε το χρώμα κειμένου
 	</string>
 	<string name="generic">Γενικά</string>
+	<string name="clockwise">Δεξιόστροφα</string>
+	<string name="counterclockwise">Αριστερόστροφα</string>
 	<string name="cycleDirection">Κατεύθυνση περιστροφής</string>
 	<string name="cycleDirectionSummary">Αλλάξτε την κατεύθυνση περιστροφής του κύκλου
 	</string>
@@ -92,6 +94,12 @@
 	<string name="previewSeconds">Διάρκεια προεπισκόπισης</string>
 	<string name="previewSecondsSummary">Διάρκεια προεπισκόπισης τραγουδιού σε δευτερόλεπτα
 	</string>
+	<string name="seconds1">1 δευτερόλεπτο</string>
+	<string name="seconds3">3 δευτερόλεπτα</string>
+	<string name="seconds5">5 δευτερόλεπτα</string>
+	<string name="seconds7">7 δευτερόλεπτα</string>
+	<string name="secondsFull">Ολόκληρο</string>
+	
 
 
 	<string name="playersColors">Χρώματα παικτών</string>

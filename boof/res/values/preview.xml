@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
         <string-array name="previewText">
-        <item name="1000">1 δευτερόλεπτο</item>
-        <item name="3000">3 δευτερόλεπτα</item>
-        <item name="5000">5 δευτερόλεπτα</item>
-        <item name="7000">7 δευτερόλεπτα</item>
-        <item name="0">Ολόκληρο</item>
+        <item name="1000">@string/seconds1</item>
+        <item name="3000">@string/seconds3</item>
+        <item name="5000">@string/seconds5</item>
+        <item name="7000">@string/seconds7</item>
+        <item name="0">@string/secondsFull</item>
     </string-array>
     
     <string-array name="previewValues">
