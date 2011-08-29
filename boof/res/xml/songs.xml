@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<songs>
+	<song
+		id="1"
+		name="Α μπε μπα μπλομ"
+		changes="0.4, 0.7, 1.0, 1.5, 1.9, 2.3, 2.9, 3.2, 3.6, 4.0"
+		lyrics="Α μπε μπα μπλομ, του κίθε μπλομ, α μπε μπα μπλομ του κίθε μπλομ μπλιμ μπλομ!"
+		song="R.raw.a_mpe_mpa_mplom"
+		picture="R.drawable.a_mpe_mpa_mplom">
+	</song>
+	<song
+		id="2"
+		name="Το παπούτσι σου βρωμάει"
+		changes="0.4, 0.8, 1.2, 1.6, 1.95, 2.2, 2.8, 3.4, 4.2, 4.8, 5.6, 6.2"
+		lyrics="Το παπούτσι σου βρωμάει, άλλαξέ το!"
+		song="R.raw.to_papoutsi"
+		picture="R.drawable.to_papoutsi">
+	</song>
+	<song
+		id="3"
+		name="Όποιος έχει το δικό μου χέρι"
+		changes="0.4, 0.7, 1.0, 1.5, 1.9, 2.3, 2.9, 3.2, 3.6, 4.0"
+		lyrics="Όποιος έχει το δικό μου χέρι!"
+		song="R.raw.opoios_exei"
+		picture="R.drawable.opoios_exei">
+	</song>
+</songs>

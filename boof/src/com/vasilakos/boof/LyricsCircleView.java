@@ -6,16 +6,17 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Path.Direction;
-import android.util.Log;
 import android.view.View;
 
 public class LyricsCircleView extends View {
 	public Integer w, h;
 	public Paint paint;
 	public Path circle;
+	public String text;
 
-	public LyricsCircleView(Context context, int width, int height) {
+	public LyricsCircleView(Context context, int width, int height, String txt) {
 		super(context);
+		text = txt;
 		w = width / 2;
 		h = height / 2;
 		paint = new Paint();
@@ -29,9 +30,7 @@ public class LyricsCircleView extends View {
 		paint.setColor(Color.BLUE);
 		paint.setTextSize(16);
 		paint.setAntiAlias(true);
-		canvas.drawTextOnPath(
-				"Here are the lyrics of the selected song that will go round the cycle!",
-				circle, 0, 20, paint);
+		canvas.drawTextOnPath(text, circle, 0, 20, paint);
 		super.onDraw(canvas);
 	}
 

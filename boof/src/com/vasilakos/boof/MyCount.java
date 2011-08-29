@@ -1,5 +1,6 @@
 package com.vasilakos.boof;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import android.content.Context;
@@ -15,23 +16,26 @@ public class MyCount extends CountDownTimer {
 	public Integer current, next, previous;
 	public String prevPlayer;
 	public Integer numberOfColorChanges, players, direction;
-	public Double[] song = { 10.0, 1.3, 2.5, 4.0, 4.8, 5.0, 5.1, 6.0, 7.0, 7.3,
-			8.0, 8.2, 8.5, 8.8 };
+	public ArrayList<Double> song;
+	public Integer duration;
+//	= { 10.0, 1.3, 2.5, 4.0, 4.8, 5.0, 5.1, 6.0, 7.0, 7.3, 8.0, 8.2, 8.5, 8.8 };
 
 	public MyCount(long millisInFuture, long countDownInterval) {
 		super(millisInFuture, countDownInterval);
 	}
 
 	public MyCount(int millisInFuture, int countDownInterval, Panel p,
-			Integer noOfPlayers, Context cont) {
+			Integer noOfPlayers, String changes, Context cont) {
 		super(millisInFuture, countDownInterval);
 		panel = p;
 		players = noOfPlayers;
 		context = cont;
+		duration = millisInFuture;
+		song = new ArrayList<Double>();
+		getArrayListFromString(changes);
 		SharedPreferences prefs = PreferenceManager
 				.getDefaultSharedPreferences(context);
 		direction = Integer.parseInt(prefs.getString("cycleDirection", "1"));
-		Log.d("koko", "direction : " + direction);
 		
 		if (prefs.getBoolean("randomPlayer", true))
 			current = new Random().nextInt(noOfPlayers);
@@ -45,7 +49,7 @@ public class MyCount extends CountDownTimer {
 		if (next < 1)
 			next = players;
 		previous = 0;
-		numberOfColorChanges = 1;
+		numberOfColorChanges = 0;
 	}
 
 	@Override
@@ -60,7 +64,7 @@ public class MyCount extends CountDownTimer {
 			}
 		}
 		Toast.makeText(context, "Player " + previous + " won!", Toast.LENGTH_LONG).show();
-		numberOfColorChanges = 1;
+		numberOfColorChanges = 0;
 	}
 
 	@Override
@@ -68,8 +72,8 @@ public class MyCount extends CountDownTimer {
 		double secs = (double) millisUntilFinished / 1000;
 		secs = Math.floor(secs * 10 + .5) / 10;
 
-		if (numberOfColorChanges < song.length)
-			if (secs <= song[0] - song[numberOfColorChanges]) {
+		if (numberOfColorChanges < song.size())
+			if (secs <= duration - song.get(numberOfColorChanges)) {
 				timeToChangeColor();
 				numberOfColorChanges++;
 			}
@@ -86,5 +90,14 @@ public class MyCount extends CountDownTimer {
 			next = 1;
 		if (next < 1)
 			next = players;
+	}
+	
+	public void getArrayListFromString(String text){
+		String changes[] = text.split(", ");
+
+		for(int i = 0 ; i < changes.length ; i++){
+			Log.d("kiki", "len : " + changes.length + " : " + i + " | " + changes[i] + "\n");
+			song.add(Double.parseDouble(changes[i]));
+		}
 	}
 }

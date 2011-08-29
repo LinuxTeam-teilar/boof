@@ -218,6 +218,8 @@ public class Main extends Activity {
 				.getDefaultSharedPreferences(getBaseContext());
 		if (prefs.getBoolean("randomSong", true))
 			ga.setSelection(new Random().nextInt(songs.length), true);
+		
+		ga.setSelection(2);
 
 		ImageView logo = null;
 		logo = (ImageView) findViewById(R.id.logoImg);
