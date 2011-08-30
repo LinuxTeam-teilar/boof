@@ -25,14 +25,13 @@ public class MyCount extends CountDownTimer {
 	}
 
 	public MyCount(int millisInFuture, int countDownInterval, Panel p,
-			Integer noOfPlayers, String changes, Context cont) {
+			Integer noOfPlayers, ArrayList<Double> chang, Context cont) {
 		super(millisInFuture, countDownInterval);
 		panel = p;
 		players = noOfPlayers;
 		context = cont;
-		duration = millisInFuture;
-		song = new ArrayList<Double>();
-		getArrayListFromString(changes);
+		duration = millisInFuture/1000;
+		song = chang;
 		SharedPreferences prefs = PreferenceManager
 				.getDefaultSharedPreferences(context);
 		direction = Integer.parseInt(prefs.getString("cycleDirection", "1"));
@@ -90,14 +89,5 @@ public class MyCount extends CountDownTimer {
 			next = 1;
 		if (next < 1)
 			next = players;
-	}
-	
-	public void getArrayListFromString(String text){
-		String changes[] = text.split(", ");
-
-		for(int i = 0 ; i < changes.length ; i++){
-			Log.d("kiki", "len : " + changes.length + " : " + i + " | " + changes[i] + "\n");
-			song.add(Double.parseDouble(changes[i]));
-		}
 	}
 }

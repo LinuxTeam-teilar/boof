@@ -38,7 +38,7 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback {
 		createPaints();
 		setAllDefaultPaintColors();
 
-		int rectWidth = 0, rectHeight = 0, horizontalSpace = (int) (width*0.1), verticalSpace = (int) (height*0.1);
+		int rectWidth = 0, rectHeight = 0, horizontalSpace = (int) (width*0.15), verticalSpace = (int) (height*0.15);
 		
 		if (height > width) {
 			rectWidth = width - horizontalSpace;

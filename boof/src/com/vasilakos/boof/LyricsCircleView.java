@@ -2,7 +2,6 @@ package com.vasilakos.boof;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Path.Direction;
@@ -13,9 +12,11 @@ public class LyricsCircleView extends View {
 	public Paint paint;
 	public Path circle;
 	public String text;
+	public int color;
 
-	public LyricsCircleView(Context context, int width, int height, String txt) {
+	public LyricsCircleView(Context context, int width, int height, String txt, int col) {
 		super(context);
+		color = col;
 		text = txt;
 		w = width / 2;
 		h = height / 2;
@@ -27,7 +28,7 @@ public class LyricsCircleView extends View {
 	protected void onDraw(Canvas canvas) {
 		circle.addCircle(w, h, w, Direction.CW);
 		paint.setStyle(Paint.Style.FILL);
-		paint.setColor(Color.BLUE);
+		paint.setColor(color);
 		paint.setTextSize(16);
 		paint.setAntiAlias(true);
 		canvas.drawTextOnPath(text, circle, 0, 20, paint);

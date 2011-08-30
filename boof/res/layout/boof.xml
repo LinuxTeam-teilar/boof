@@ -5,9 +5,10 @@
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent">
 	<TextView
-		android:text="This is the title of the selected song!"
+		android:text="This is the title of the song!"
 		android:layout_centerHorizontal="true"
 		android:layout_alignParentTop="true"
+		android:textSize="20sp"
 		android:id="@+id/songTitle"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"></TextView>

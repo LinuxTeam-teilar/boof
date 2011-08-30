@@ -15,6 +15,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -45,9 +46,9 @@ public class Main extends Activity {
 	public Animation anim;
 	public static Typeface font;
 
-	Integer[] songs = { R.drawable.song0, R.drawable.song1, R.drawable.song2,
-			R.drawable.song3, R.drawable.song4, R.drawable.song5,
-			R.drawable.song6, R.drawable.song7, R.drawable.song8 };
+//	Integer[] songs = { R.drawable.song0, R.drawable.song1, R.drawable.song2,
+//			R.drawable.song3, R.drawable.song4, R.drawable.song5,
+//			R.drawable.song6, R.drawable.song7, R.drawable.song8 };
 
 	@Override
 	public void onStop() {
@@ -217,7 +218,7 @@ public class Main extends Activity {
 		SharedPreferences prefs = PreferenceManager
 				.getDefaultSharedPreferences(getBaseContext());
 		if (prefs.getBoolean("randomSong", true))
-			ga.setSelection(new Random().nextInt(songs.length), true);
+			ga.setSelection(new Random().nextInt(Songs.songs.size()), true);
 		
 		ga.setSelection(2);
 
@@ -263,7 +264,8 @@ public class Main extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 
 		setContentView(R.layout.main);
-
+		
+		Songs.initialize(getApplicationContext());
 	}
 
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -458,7 +460,7 @@ public class Main extends Activity {
 
 		public int getCount() {
 
-			return songs.length;
+			return Songs.songs.size();
 		}
 
 		public Object getItem(int arg0) {
@@ -473,7 +475,7 @@ public class Main extends Activity {
 
 		public View getView(int arg0, View arg1, ViewGroup arg2) {
 			ImageView iv = new ImageView(ctx);
-			iv.setImageResource(songs[arg0]);
+			iv.setImageResource(Songs.songs.get(arg0).getSongPicture());
 			iv.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
 			// iv.setLayoutParams(new Gallery.LayoutParams(144,50));
 			return iv;
